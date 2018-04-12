@@ -22,8 +22,8 @@
     <t:dgCol title="更新时间"  field="updatetime" formatter="yyyy-MM-dd"   queryMode="group"  width="100"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
 <%--    <t:dgDelOpt title="删除" url="ctUserAccountController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/> --%>
-<%--    <t:dgToolBar title="录入" icon="icon-add" url="ctUserAccountController.do?goAdd" funname="add"></t:dgToolBar> --%>
-   <t:dgToolBar title="充值" icon="icon-edit" url="ctUserAccountController.do?goUpdate" funname="update"></t:dgToolBar>
+   <t:dgToolBar title="充值" icon="icon-add" url="ctUserAccountController.do?goAdd&action=add" funname="update"></t:dgToolBar>
+   <t:dgToolBar title="减值" icon="icon-edit" url="ctUserAccountController.do?goAdd&action=sub" funname="update"></t:dgToolBar>
 <%--    <t:dgToolBar title="批量删除"  icon="icon-remove" url="ctUserAccountController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar> --%>
    <t:dgToolBar title="查看" icon="icon-search" url="ctUserAccountController.do?goUpdate" funname="detail"></t:dgToolBar>
    <%-- <t:dgToolBar title="导入" icon="icon-put" funname="ImportXls"></t:dgToolBar> --%>

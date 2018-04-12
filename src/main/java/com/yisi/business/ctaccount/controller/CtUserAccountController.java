@@ -1,6 +1,9 @@
 package com.yisi.business.ctaccount.controller;
 import com.yisi.business.ctaccount.entity.CtUserAccountEntity;
 import com.yisi.business.ctaccount.service.CtUserAccountServiceI;
+import com.yisi.business.ctuser.entity.CtUserEntity;
+import com.yisi.business.util.AccountType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.text.SimpleDateFormat;
@@ -29,6 +32,8 @@ import org.jeecgframework.web.system.service.SystemService;
 import org.jeecgframework.core.util.MyBeanUtils;
 
 import java.io.OutputStream;
+import java.math.BigDecimal;
+
 import org.jeecgframework.core.util.BrowserUtils;
 import org.jeecgframework.poi.excel.ExcelExportUtil;
 import org.jeecgframework.poi.excel.ExcelImportUtil;
@@ -190,7 +195,18 @@ public class CtUserAccountController extends BaseController {
 		AjaxJson j = new AjaxJson();
 		message = "用户账户类型添加成功";
 		try{
-			ctUserAccountService.save(ctUserAccount);
+			String action = request.getParameter("action");
+			BigDecimal amount = ctUserAccount.getAmount();
+			if(action.equals("sub")){
+				amount = amount.negate();
+			}
+			String atype = ctUserAccount.getAccounttype();
+			
+			
+			//修改账户金额
+			ctUserAccountService.updateUserAcount(ctUserAccount.getUserid(), 
+					atype, amount, action);
+			
 			systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -236,10 +252,15 @@ public class CtUserAccountController extends BaseController {
 	@RequestMapping(params = "goAdd")
 	public ModelAndView goAdd(CtUserAccountEntity ctUserAccount, HttpServletRequest req) {
 		if (StringUtil.isNotEmpty(ctUserAccount.getId())) {
-			ctUserAccount = ctUserAccountService.getEntity(CtUserAccountEntity.class, ctUserAccount.getId());
+			ctUserAccount = ctUserAccountService.get(CtUserAccountEntity.class, ctUserAccount.getId());
 			req.setAttribute("ctUserAccountPage", ctUserAccount);
 		}
-		return new ModelAndView("com/yisi/business/ctaccount/ctUserAccount-add");
+		String action = req.getParameter("action");
+		if("add".equals(action)){
+			return new ModelAndView("com/yisi/business/ctaccount/ctUserAccount-add");
+		}else{
+			return new ModelAndView("com/yisi/business/ctaccount/ctUserAccount-sub");
+		}
 	}
 	/**
 	 * 用户账户类型编辑页面跳转

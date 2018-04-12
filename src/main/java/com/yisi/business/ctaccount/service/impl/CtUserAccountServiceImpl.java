@@ -1,13 +1,26 @@
 package com.yisi.business.ctaccount.service.impl;
 import com.yisi.business.ctaccount.service.CtUserAccountServiceI;
+import com.yisi.business.ctuser.entity.CtUserEntity;
+import com.yisi.business.util.AccountType;
+import com.yisi.business.util.IncomeType;
+
+import org.apache.commons.lang3.StringUtils;
 import org.jeecgframework.core.common.service.impl.CommonServiceImpl;
+
+import com.yisi.business.ctaccount.entity.CtUserAccountDetailEntity;
 import com.yisi.business.ctaccount.entity.CtUserAccountEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import org.jeecgframework.core.util.ApplicationContextUtil;
 import org.jeecgframework.core.util.MyClassLoader;
 import org.jeecgframework.core.util.StringUtil;
@@ -17,7 +30,101 @@ import org.jeecgframework.web.cgform.enhance.CgformEnhanceJavaInter;
 @Transactional
 public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUserAccountServiceI {
 
-	
+	//更新用户金额
+	public void updateUserAcount(int userId,String aType,BigDecimal amount,String action) throws Exception{
+		
+		  //判断用户是否存在此帐户 没有刚增加
+//        String countSql = " select count(1) from ct_user_account where userId= " + userId;
+//        long count = this.getCountForJdbc(countSql);
+        
+        List<CtUserAccountEntity> cuaList = this.findByProperty(CtUserAccountEntity.class,
+        		"ctUser.id", userId);
+        if (CollectionUtils.isEmpty(cuaList)) {
+        	CtUserAccountEntity cua = new CtUserAccountEntity();
+        	CtUserEntity ctUser = new CtUserEntity();
+        	ctUser.setId(0);
+        	cua.setCtUser(ctUser);
+        	cua.setUpdatetime(new Date());
+        	this.save(cua);
+        } 
+        CtUserAccountEntity cua = cuaList.get(0);
+        BigDecimal oldAmount = BigDecimal.ZERO;
+		//更新语句
+		String updateSql = "UPDATE ct_user_account set " ;
+		String updateUserSql = "UPDATE ct_user set " ;
+		
+		//原始仓账户
+		if(aType.equals(AccountType.original.getAccountType())){
+			oldAmount = cua.getOriginalamount();
+			amount = getAmount(action, oldAmount, amount);
+			
+			updateSql +=  "originalamount = ifnull(originalamount,0)+" + amount + ",";
+			updateUserSql +=  "balance_integral = ifnull(balance_integral,0)+" + amount + ",";
+		//现持仓账户
+		}else if(aType.equals(AccountType.current.getAccountType())){
+			oldAmount = cua.getAmount();
+			amount = getAmount(action, oldAmount, amount);
+			
+			updateUserSql +=  "balance_bonus = ifnull(balance_bonus,0)+" + amount + ",";
+			
+			updateSql +=  "amount = ifnull(amount,0)+" + amount + ",";
+			//积分
+		}else if(aType.equals(AccountType.score.getAccountType())){
+			oldAmount = cua.getScoreamount();
+			amount = getAmount(action, oldAmount, amount);
+			
+			updateUserSql +=  "balance_cash = ifnull(balance_cash,0)+" + amount + ",";
+			updateSql +=  "scoreamount = ifnull(scoreamount,0)+" + amount + ",";
+			//美元点
+		}else if(aType.equals(AccountType.point.getAccountType())){
+			oldAmount = cua.getPointamount();
+			amount = getAmount(action, oldAmount, amount);
+			
+			updateUserSql +=  "balance_shopping = ifnull(balance_shopping,0)+" + amount + ",";
+			updateSql +=  "pointamount = ifnull(pointamount,0)+" + amount + ",";
+		}
+		
+		String type = "+";
+		if("add".equals(action)){
+			updateSql +=  "totalInocmeAmount = ifnull(totalInocmeAmount,0)+" + amount + ",";
+			updateSql +=  "incomeAmount = ifnull(incomeAmount,0)+" + amount + ",";
+		}else{
+			updateSql +=  "totalConsumeAmount = ifnull(totalConsumeAmount,0)+" + amount + ",";
+			updateSql +=  "consumeAmount = ifnull(consumeAmount,0)+" + amount + ",";
+			 type = "-";
+		}
+		
+		updateSql = updateSql +  "updateTime = now() "
+				  + "WHERE userId = ?  ";
+		this.executeSql(updateSql, userId);		
+		updateUserSql = updateUserSql 
+				+ " dis=dis WHERE id = ? ";
+		this.executeSql(updateUserSql, userId);		
+
+        // 增加用户消费列表
+        CtUserAccountDetailEntity uaDetail = new CtUserAccountDetailEntity();
+        uaDetail.setAmount(amount);
+        uaDetail.setCreatetime(new Date());
+        uaDetail.setIncometype(IncomeType.TYPE_USER_CHANTE.getIncomeType());
+        uaDetail.setMoreorless(type);
+        uaDetail.setAccounttype(aType);
+        uaDetail.setRemark(IncomeType.TYPE_USER_CHANTE.getRemark());
+        CtUserEntity ctUser = new CtUserEntity();
+    	ctUser.setId(userId);
+        uaDetail.setCtUser(ctUser);
+        this.save(uaDetail);
+		
+	}
+ 	
+	private BigDecimal getAmount( String action,BigDecimal oldAmount,BigDecimal amount){
+		if(action.equals("sub")){
+			if(oldAmount.add(amount).compareTo(BigDecimal.ZERO) <0){
+				return oldAmount.negate();
+			}
+		}
+		 return amount; 
+	}
+
  	public void delete(CtUserAccountEntity entity) throws Exception{
  		super.delete(entity);
  		//执行删除操作增强业务
