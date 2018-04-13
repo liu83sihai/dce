@@ -12,8 +12,8 @@
  <body>
 		<t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="ctUserController.do?doUpdate" >
 					<input id="id" name="id" type="hidden" value="${ctUserPage.id }">
-					<input id="userPassword" name="userPassword" type="hidden" value="${ctUserPage.userPassword }">
-					<input id="twoPassword" name="twoPassword" type="hidden" value="${ctUserPage.twoPassword }">
+<%-- 					<input id="userPassword" name="userPassword" type="hidden" value="${ctUserPage.userPassword }"> --%>
+<%-- 					<input id="twoPassword" name="twoPassword" type="hidden" value="${ctUserPage.twoPassword }"> --%>
 					<input id="refereeid" name="refereeid" type="hidden" value="${ctUserPage.refereeid }">
 					<input id="parentid" name="parentid" type="hidden" value="${ctUserPage.parentid }">
 					<input id="loginTimes" name="loginTimes" type="hidden" value="${ctUserPage.loginTimes }">
@@ -154,6 +154,32 @@
 						     	 value='${ctUserPage.balanceCash}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">积分</label>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								用户密码:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="userPassword" name="userPassword" type="text" style="width: 150px" class="inputxt"  
+						     	 ignore="ignore" 
+						     	 value='${ctUserPage.userPassword}'>
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">用户密码</label>
+						</td>
+						<td align="right">
+							<label class="Validform_label">
+								支付密码:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="twoPassword" name="twoPassword" type="text" style="width: 150px" class="inputxt"  
+						     	 ignore="ignore" 
+						     	 value='${ctUserPage.twoPassword}'>
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">支付密码</label>
 						</td>
 					</tr>
 					<tr>

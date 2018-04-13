@@ -224,9 +224,17 @@ public class CtUserController extends BaseController {
 		try {
 			String oldPassword = t.getUserPassword();
 			String newPassword = ctUser.getUserPassword();
+			
+			String oldTwoPassword = t.getTwoPassword();
+			String newTwoPassword = ctUser.getTwoPassword();
 			if(!oldPassword.equals(newPassword)){
 				String md5Password = MD5Encrypt.getMessageDigest(newPassword);
 				ctUser.setUserPassword(md5Password);
+			}
+			
+			if(!oldTwoPassword.equals(newTwoPassword)){
+				String md5Password = MD5Encrypt.getMessageDigest(newTwoPassword);
+				ctUser.setTwoPassword(md5Password);
 			}
 			
 			MyBeanUtils.copyBeanNotNull2Bean(ctUser, t);
@@ -308,7 +316,7 @@ public class CtUserController extends BaseController {
 		JSONArray jsonArray=JSONArray.fromObject(userList);
 		req.setAttribute("regions", jsonArray.toString().replaceAll("pid","pId"));
 		
-		return new ModelAndView("com/yisi/business/ctuser/user_tree");
+		return new ModelAndView("com/yisi/business/ctuser/user_ref");
 	}
 	/**
 	 * Ztree
