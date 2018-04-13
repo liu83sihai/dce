@@ -49,18 +49,18 @@ public class CtUserAccountEntity implements java.io.Serializable {
 	/**现持仓*/
 	@Excel(name="现持仓")
 	private java.math.BigDecimal amount;
-	/**原始仓*/
-	@Excel(name="原始仓")
-	private java.math.BigDecimal originalamount;
-	/**美元点*/
-	@Excel(name="美元点")
-	private java.math.BigDecimal pointamount;
-	/**积分*/
-	@Excel(name="积分")
-	private java.math.BigDecimal scoreamount;
-	/**锁仓*/
-	@Excel(name="锁仓")
-	private java.math.BigDecimal frozendeposit;
+//	/**原始仓*/
+//	@Excel(name="原始仓")
+//	private java.math.BigDecimal originalamount;
+//	/**美元点*/
+//	@Excel(name="美元点")
+//	private java.math.BigDecimal pointamount;
+//	/**积分*/
+//	@Excel(name="积分")
+//	private java.math.BigDecimal scoreamount;
+//	/**锁仓*/
+//	@Excel(name="锁仓")
+//	private java.math.BigDecimal frozendeposit;
 	/**累计支出金额*/
 	@Excel(name="累计支出金额")
 	private java.math.BigDecimal totalconsumeamount;
@@ -145,70 +145,7 @@ public class CtUserAccountEntity implements java.io.Serializable {
 	public void setAmount(java.math.BigDecimal amount){
 		this.amount = amount;
 	}
-	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  原始仓
-	 */
-	@Column(name ="ORIGINALAMOUNT",nullable=true,scale=4,length=11)
-	public java.math.BigDecimal getOriginalamount(){
-		return this.originalamount;
-	}
-
-	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  原始仓
-	 */
-	public void setOriginalamount(java.math.BigDecimal originalamount){
-		this.originalamount = originalamount;
-	}
-	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  美元点
-	 */
-	@Column(name ="POINTAMOUNT",nullable=true,scale=4,length=11)
-	public java.math.BigDecimal getPointamount(){
-		return this.pointamount;
-	}
-
-	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  美元点
-	 */
-	public void setPointamount(java.math.BigDecimal pointamount){
-		this.pointamount = pointamount;
-	}
-	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  积分
-	 */
-	@Column(name ="SCOREAMOUNT",nullable=true,scale=4,length=11)
-	public java.math.BigDecimal getScoreamount(){
-		return this.scoreamount;
-	}
-
-	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  积分
-	 */
-	public void setScoreamount(java.math.BigDecimal scoreamount){
-		this.scoreamount = scoreamount;
-	}
-	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  锁仓
-	 */
-	@Column(name ="FROZENDEPOSIT",nullable=true,scale=4,length=11)
-	public java.math.BigDecimal getFrozendeposit(){
-		return this.frozendeposit;
-	}
-
-	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  锁仓
-	 */
-	public void setFrozendeposit(java.math.BigDecimal frozendeposit){
-		this.frozendeposit = frozendeposit;
-	}
+	
 	/**
 	 *方法: 取得java.math.BigDecimal
 	 *@return: java.math.BigDecimal  累计支出金额

@@ -34,54 +34,57 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
 	public void updateUserAcount(int userId,String aType,BigDecimal amount,String action) throws Exception{
 		
 		  //判断用户是否存在此帐户 没有刚增加
-//        String countSql = " select count(1) from ct_user_account where userId= " + userId;
+        String listSql = " select * from ct_user_account where userId= ?"  
+        			   + " and accounttype = ?"  ;
 //        long count = this.getCountForJdbc(countSql);
         
-        List<CtUserAccountEntity> cuaList = this.findByProperty(CtUserAccountEntity.class,
-        		"ctUser.id", userId);
+        List<Map<String,Object>> cuaList = this.findForJdbc(listSql,userId,aType);
+        
+        
         if (CollectionUtils.isEmpty(cuaList)) {
-        	CtUserAccountEntity cua = new CtUserAccountEntity();
-        	CtUserEntity ctUser = new CtUserEntity();
-        	ctUser.setId(0);
-        	cua.setCtUser(ctUser);
-        	cua.setUpdatetime(new Date());
-        	this.save(cua);
+//        	CtUserAccountEntity cua = new CtUserAccountEntity();
+//        	CtUserEntity ctUser = new CtUserEntity();
+//        	ctUser.setId(0);
+//        	cua.setCtUser(ctUser);
+//        	cua.setUpdatetime(new Date());
+//        	this.save(cua);
+        	return;
         } 
-        CtUserAccountEntity cua = cuaList.get(0);
-        BigDecimal oldAmount = BigDecimal.ZERO;
+        Map cua = cuaList.get(0);
+        BigDecimal oldAmount = (BigDecimal)cua.get("amount");
+        oldAmount = null == oldAmount ? BigDecimal.ZERO : oldAmount;
 		//更新语句
-		String updateSql = "UPDATE ct_user_account set " ;
+		String updateSql = "UPDATE ct_user_account set amount = ifnull(amount,0) + ?," ;
 		String updateUserSql = "UPDATE ct_user set " ;
 		
 		//原始仓账户
 		if(aType.equals(AccountType.original.getAccountType())){
-			oldAmount = cua.getOriginalamount();
 			amount = getAmount(action, oldAmount, amount);
 			
-			updateSql +=  "originalamount = ifnull(originalamount,0)+" + amount + ",";
+//			updateSql +=  "originalamount = ifnull(originalamount,0)+" + amount + ",";
 			updateUserSql +=  "balance_integral = ifnull(balance_integral,0)+" + amount + ",";
 		//现持仓账户
 		}else if(aType.equals(AccountType.current.getAccountType())){
-			oldAmount = cua.getAmount();
+//			oldAmount = cua.getAmount();
 			amount = getAmount(action, oldAmount, amount);
 			
 			updateUserSql +=  "balance_bonus = ifnull(balance_bonus,0)+" + amount + ",";
 			
-			updateSql +=  "amount = ifnull(amount,0)+" + amount + ",";
+//			updateSql +=  "amount = ifnull(amount,0)+" + amount + ",";
 			//积分
 		}else if(aType.equals(AccountType.score.getAccountType())){
-			oldAmount = cua.getScoreamount();
+//			oldAmount = cua.getScoreamount();
 			amount = getAmount(action, oldAmount, amount);
 			
 			updateUserSql +=  "balance_cash = ifnull(balance_cash,0)+" + amount + ",";
-			updateSql +=  "scoreamount = ifnull(scoreamount,0)+" + amount + ",";
+//			updateSql +=  "scoreamount = ifnull(scoreamount,0)+" + amount + ",";
 			//美元点
 		}else if(aType.equals(AccountType.point.getAccountType())){
-			oldAmount = cua.getPointamount();
+//			oldAmount = cua.getPointamount();
 			amount = getAmount(action, oldAmount, amount);
 			
 			updateUserSql +=  "balance_shopping = ifnull(balance_shopping,0)+" + amount + ",";
-			updateSql +=  "pointamount = ifnull(pointamount,0)+" + amount + ",";
+//			updateSql +=  "pointamount = ifnull(pointamount,0)+" + amount + ",";
 		}
 		
 		String type = "+";
@@ -95,8 +98,8 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
 		}
 		
 		updateSql = updateSql +  "updateTime = now() "
-				  + "WHERE userId = ?  ";
-		this.executeSql(updateSql, userId);		
+				  + "WHERE userId = ?  and accounttype = ? ";
+		this.executeSql(updateSql, userId,aType);		
 		updateUserSql = updateUserSql 
 				+ " dis=dis WHERE id = ? ";
 		this.executeSql(updateUserSql, userId);		
@@ -187,10 +190,10 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
 		map.put("userid", t.getUserid());
 		map.put("accounttype", t.getAccounttype());
 		map.put("amount", t.getAmount());
-		map.put("originalamount", t.getOriginalamount());
-		map.put("pointamount", t.getPointamount());
-		map.put("scoreamount", t.getScoreamount());
-		map.put("frozendeposit", t.getFrozendeposit());
+//		map.put("originalamount", t.getOriginalamount());
+//		map.put("pointamount", t.getPointamount());
+//		map.put("scoreamount", t.getScoreamount());
+//		map.put("frozendeposit", t.getFrozendeposit());
 		map.put("totalconsumeamount", t.getTotalconsumeamount());
 		map.put("totalinocmeamount", t.getTotalinocmeamount());
 		map.put("incomeamount", t.getIncomeamount());
@@ -211,10 +214,10 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
  		sql  = sql.replace("#{userid}",String.valueOf(t.getUserid()));
  		sql  = sql.replace("#{accounttype}",String.valueOf(t.getAccounttype()));
  		sql  = sql.replace("#{amount}",String.valueOf(t.getAmount()));
- 		sql  = sql.replace("#{originalamount}",String.valueOf(t.getOriginalamount()));
- 		sql  = sql.replace("#{pointamount}",String.valueOf(t.getPointamount()));
- 		sql  = sql.replace("#{scoreamount}",String.valueOf(t.getScoreamount()));
- 		sql  = sql.replace("#{frozendeposit}",String.valueOf(t.getFrozendeposit()));
+// 		sql  = sql.replace("#{originalamount}",String.valueOf(t.getOriginalamount()));
+// 		sql  = sql.replace("#{pointamount}",String.valueOf(t.getPointamount()));
+// 		sql  = sql.replace("#{scoreamount}",String.valueOf(t.getScoreamount()));
+// 		sql  = sql.replace("#{frozendeposit}",String.valueOf(t.getFrozendeposit()));
  		sql  = sql.replace("#{totalconsumeamount}",String.valueOf(t.getTotalconsumeamount()));
  		sql  = sql.replace("#{totalinocmeamount}",String.valueOf(t.getTotalinocmeamount()));
  		sql  = sql.replace("#{incomeamount}",String.valueOf(t.getIncomeamount()));

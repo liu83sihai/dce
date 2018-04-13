@@ -1,6 +1,7 @@
 package com.yisi.business.ctuser.controller;
 import com.yisi.business.ctuser.entity.CtUserEntity;
 import com.yisi.business.ctuser.service.CtUserServiceI;
+import com.yisi.business.util.MD5Encrypt;
 
 import net.sf.json.JSONArray;
 
@@ -218,7 +219,16 @@ public class CtUserController extends BaseController {
 		AjaxJson j = new AjaxJson();
 		message = "用户信息表更新成功";
 		CtUserEntity t = ctUserService.get(CtUserEntity.class, ctUser.getId());
+		
+		
 		try {
+			String oldPassword = t.getUserPassword();
+			String newPassword = ctUser.getUserPassword();
+			if(!oldPassword.equals(newPassword)){
+				String md5Password = MD5Encrypt.getMessageDigest(newPassword);
+				ctUser.setUserPassword(md5Password);
+			}
+			
 			MyBeanUtils.copyBeanNotNull2Bean(ctUser, t);
 			ctUserService.saveOrUpdate(t);
 			systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);

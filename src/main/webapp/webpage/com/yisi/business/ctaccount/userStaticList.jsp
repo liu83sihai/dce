@@ -6,7 +6,7 @@
   <t:datagrid name="userStaticList" checkbox="true" pagination="true" fitColumns="false" title="用户静态分红" actionUrl="userStaticController.do?datagrid" idField="id" fit="true" queryMode="group">
     <t:dgCol title="id"  field="id"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="用户"  field="ctUser.userName"  query="true" queryMode="single"  width="120"></t:dgCol>
-    <t:dgCol title="手机"  field="ctUser.mobile"  query="true" queryMode="single"  width="120"></t:dgCol>
+    <t:dgCol title="会员级别"  field="ctUser.userLevel"  query="true" queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="每日返利"  field="money"    queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="返利总额"  field="totalmoney"    queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="已返"  field="yfBonus"    queryMode="group"  width="120"></t:dgCol>

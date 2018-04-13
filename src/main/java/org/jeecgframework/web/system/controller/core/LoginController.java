@@ -97,13 +97,15 @@ public class LoginController extends BaseController{
 		}
 		//验证码
 		String randCode = req.getParameter("randCode");
-		if (StringUtils.isEmpty(randCode)) {
-			j.setMsg(mutiLangService.getLang("common.enter.verifycode"));
-			j.setSuccess(false);
-		} else if (!randCode.equalsIgnoreCase(String.valueOf(session.getAttribute("randCode")))) {
-			j.setMsg(mutiLangService.getLang("common.verifycode.error"));
-			j.setSuccess(false);
-		} else {
+//		if (StringUtils.isEmpty(randCode)) {
+//			j.setMsg(mutiLangService.getLang("common.enter.verifycode"));
+//			j.setSuccess(false);
+//		} else if (!randCode.equalsIgnoreCase(String.valueOf(session.getAttribute("randCode")))) {
+//			j.setMsg(mutiLangService.getLang("common.verifycode.error"));
+//			j.setSuccess(false);
+//		} else 
+//		
+//		{
 			//用户登录验证逻辑
 			TSUser u = userService.checkUserExits(user);
 			if (u == null) {
@@ -137,7 +139,7 @@ public class LoginController extends BaseController{
 
 				j.setSuccess(false);
 			}
-		}
+//		}
 		return j;
 	}
 	

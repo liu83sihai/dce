@@ -56,7 +56,7 @@ public class CtUserEntity implements java.io.Serializable {
 	private java.math.BigDecimal balanceIntegral;
 	/**用户性别*/
 	@Excel(name="用户性别")
-	private java.lang.Integer sex;
+	private String sex;
 	/**登录次数*/
 	@Excel(name="登录次数")
 	private java.lang.Integer loginTimes;
@@ -440,8 +440,8 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  用户性别
 	 */
-	@Column(name ="SEX",nullable=false,length=2)
-	public java.lang.Integer getSex(){
+	@Column(name ="SEX",nullable=false)
+	public String getSex(){
 		return this.sex;
 	}
 
@@ -449,7 +449,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 设置java.lang.Integer
 	 *@param: java.lang.Integer  用户性别
 	 */
-	public void setSex(java.lang.Integer sex){
+	public void setSex(String sex){
 		this.sex = sex;
 	}
 	/**

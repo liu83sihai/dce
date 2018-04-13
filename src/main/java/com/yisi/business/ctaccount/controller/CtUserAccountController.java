@@ -117,6 +117,21 @@ public class CtUserAccountController extends BaseController {
 	@RequestMapping(params = "datagrid")
 	public void datagrid(CtUserAccountEntity ctUserAccount,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
 		CriteriaQuery cq = new CriteriaQuery(CtUserAccountEntity.class, dataGrid);
+		
+		int page = dataGrid.getPage();
+		int rows = dataGrid.getRows();
+		
+		String viewSql = "  select  cu.id,user_name userName,mobile,    "
+				+ "  cua.amount originalamount,"
+				+ "  cub.amount amount,"
+				+ "  cuc.amount pointamount,"
+				+ "  cuc.amount scoreamount "
+				+ "  from ct_user cu"
+				+ "  left join ct_user_account cua on  cu.id = cua.userid and cua.accounttype='original'"
+				+ "  left join ct_user_account cub on  cu.id = cub.userid and cub.accounttype='current'"
+				+ "  left join ct_user_account cuc on  cu.id = cuc.userid and cuc.accounttype='point'"
+				+ "  left join ct_user_account cud on  cu.id = cud.userid and cud.accounttype='score'";
+		
 		//查询条件组装器
 		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccount, request.getParameterMap());
 		try{
