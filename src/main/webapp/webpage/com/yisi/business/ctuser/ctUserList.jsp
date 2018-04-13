@@ -97,8 +97,8 @@
 <%--    <t:dgDelOpt title="删除" url="ctUserController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/> --%>
    <t:dgToolBar title="录入" icon="icon-add" url="ctUserController.do?goAdd" funname="add"></t:dgToolBar>
    <t:dgToolBar title="编辑" icon="icon-edit" url="ctUserController.do?goUpdate" funname="update"></t:dgToolBar>
-   <t:dgToolBar title="禁用" icon="icon-edit" url="ctUserController.do?doUpdate&status=0" funname="updateStatus"></t:dgToolBar>
-   <t:dgToolBar title="恢复正常" icon="icon-edit" url="ctUserController.do?doUpdate&status=1" funname="updateStatus"></t:dgToolBar>
+   <t:dgToolBar title="禁用" icon="icon-edit" url="ctUserController.do?doUpdate&status=1" funname="updateStatus"></t:dgToolBar>
+   <t:dgToolBar title="恢复正常" icon="icon-edit" url="ctUserController.do?doUpdate&status=0" funname="updateStatus"></t:dgToolBar>
   	<t:dgToolBar title="组织结构" icon="icon-edit" url="ctUserController.do?userOrgin" funname="openUserTree" width="680" height="400"></t:dgToolBar>
    <t:dgToolBar title="推荐结构" icon="icon-edit" url="ctUserController.do?userRef" funname="openUserTree" width="680" height="400"></t:dgToolBar>
 <%--    <t:dgToolBar title="批量删除"  icon="icon-remove" url="ctUserController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar> --%>
