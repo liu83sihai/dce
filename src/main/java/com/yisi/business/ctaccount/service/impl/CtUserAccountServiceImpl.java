@@ -99,7 +99,7 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
 		
 		updateSql = updateSql +  "updateTime = now() "
 				  + "WHERE userId = ?  and accounttype = ? ";
-		this.executeSql(updateSql, userId,aType);		
+		this.executeSql(updateSql, amount, userId,aType);		
 		updateUserSql = updateUserSql 
 				+ " dis=dis WHERE id = ? ";
 		this.executeSql(updateUserSql, userId);		

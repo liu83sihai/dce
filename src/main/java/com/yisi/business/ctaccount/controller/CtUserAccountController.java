@@ -121,26 +121,32 @@ public class CtUserAccountController extends BaseController {
 		int page = dataGrid.getPage();
 		int rows = dataGrid.getRows();
 		
+		
 		String viewSql = "  select  cu.id,user_name userName,mobile,    "
 				+ "  cua.amount originalamount,"
 				+ "  cub.amount amount,"
 				+ "  cuc.amount pointamount,"
-				+ "  cuc.amount scoreamount "
+				+ "  cud.amount scoreamount "
 				+ "  from ct_user cu"
 				+ "  left join ct_user_account cua on  cu.id = cua.userid and cua.accounttype='original'"
 				+ "  left join ct_user_account cub on  cu.id = cub.userid and cub.accounttype='current'"
 				+ "  left join ct_user_account cuc on  cu.id = cuc.userid and cuc.accounttype='point'"
-				+ "  left join ct_user_account cud on  cu.id = cud.userid and cud.accounttype='score'";
+				+ "  left join ct_user_account cud on  cu.id = cud.userid and cud.accounttype='score'"
+				+ "  where 1=1 ";
 		
+		long count = systemService.getCountForJdbc("select count(1) from ct_user");
+		List<Map<String,Object>> accountList = systemService.findForJdbcParam(viewSql, page, rows);
 		//查询条件组装器
-		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccount, request.getParameterMap());
+//		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccount, request.getParameterMap());
 		try{
 		//自定义追加查询条件
 		}catch (Exception e) {
 			throw new BusinessException(e.getMessage());
 		}
 		cq.add();
-		this.ctUserAccountService.getDataGridReturn(cq, true);
+		dataGrid.setResults(accountList);
+		dataGrid.setTotal((int)count);
+//		this.ctUserAccountService.getDataGridReturn(cq, true);
 		TagUtil.datagrid(response, dataGrid);
 	}
 	
@@ -267,7 +273,9 @@ public class CtUserAccountController extends BaseController {
 	@RequestMapping(params = "goAdd")
 	public ModelAndView goAdd(CtUserAccountEntity ctUserAccount, HttpServletRequest req) {
 		if (StringUtil.isNotEmpty(ctUserAccount.getId())) {
-			ctUserAccount = ctUserAccountService.get(CtUserAccountEntity.class, ctUserAccount.getId());
+//			ctUserAccount = ctUserAccountService.get(CtUserAccountEntity.class, ctUserAccount.getId());
+			CtUserEntity ctUser = systemService.getEntity(CtUserEntity.class, ctUserAccount.getId());
+			ctUserAccount.setCtUser(ctUser);
 			req.setAttribute("ctUserAccountPage", ctUserAccount);
 		}
 		String action = req.getParameter("action");
@@ -285,7 +293,9 @@ public class CtUserAccountController extends BaseController {
 	@RequestMapping(params = "goUpdate")
 	public ModelAndView goUpdate(CtUserAccountEntity ctUserAccount, HttpServletRequest req) {
 		if (StringUtil.isNotEmpty(ctUserAccount.getId())) {
-			ctUserAccount = ctUserAccountService.getEntity(CtUserAccountEntity.class, ctUserAccount.getId());
+			
+			CtUserEntity ctUser = systemService.getEntity(CtUserEntity.class, ctUserAccount.getId());
+			ctUserAccount.setCtUser(ctUser);
 			req.setAttribute("ctUserAccountPage", ctUserAccount);
 		}
 		return new ModelAndView("com/yisi/business/ctaccount/ctUserAccount-update");

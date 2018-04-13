@@ -5,9 +5,9 @@
   <div region="center" style="padding:0px;border:0px">
   <t:datagrid name="ctUserAccountList" checkbox="true" pagination="true" fitColumns="false" title="用户账户类型" actionUrl="ctUserAccountController.do?datagrid" idField="id" fit="true" queryMode="group">
     <t:dgCol title="id"  field="id"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
-    <t:dgCol title="用户名"  field="ctUser.userName"    queryMode="single" query="true" width="120"></t:dgCol>
-   	<t:dgCol title="用户名称"  field="ctUser.trueName"   query="true"  queryMode="single"  width="120"></t:dgCol>
-    <t:dgCol title="用户电话"  field="ctUser.mobile"    queryMode="group"  width="120"></t:dgCol>
+    <t:dgCol title="用户名"  field="userName"    queryMode="single" query="true" width="120"></t:dgCol>
+<%--    	<t:dgCol title="用户名称"  field="ctUser.trueName"   query="true"  queryMode="single"  width="120"></t:dgCol> --%>
+    <t:dgCol title="用户电话"  field="mobile"    queryMode="group"  width="120"></t:dgCol>
 <%--     <t:dgCol title="账户类型"  field="accounttype"    dictionary="aType"  queryMode="single"  query="true"  width="100"></t:dgCol> --%>
     <t:dgCol title="现持仓"  field="amount"    queryMode="group"  width="100"></t:dgCol>
     <t:dgCol title="原始仓"  field="originalamount"    queryMode="group"  width="100"></t:dgCol>
@@ -36,7 +36,32 @@
  <script type="text/javascript">
  $(document).ready(function(){
  });
- 
+ /**
+  * 更新事件打开窗口
+  * @param title 编辑框标题
+  * @param addurl//目标页面地址
+  * @param id//主键字段
+  */
+
+ function updateAmount(title,url, id,width,height,isRestful) {
+ 	gridname=id;
+ 	var rowsData = $('#'+id).datagrid('getSelections');
+ 	if (!rowsData || rowsData.length==0) {
+ 		tip('请选择编辑项目');
+ 		return;
+ 	}
+ 	if (rowsData.length>1) {
+ 		tip('请选择一条记录再编辑');
+ 		return;
+ 	}
+ 	if(isRestful!='undefined'&&isRestful){
+ 		url += '/'+rowsData[0].id;
+ 	}else{
+ 		url += '&userid='+rowsData[0].id;
+ 	}
+ 	alert(url);
+ 	createwindow(title,url,width,height);
+ }
    
  
 //导入

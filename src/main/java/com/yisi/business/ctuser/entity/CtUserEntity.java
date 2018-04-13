@@ -159,7 +159,7 @@ public class CtUserEntity implements java.io.Serializable {
 	private java.lang.String touchedPerformance;
 	/**激活时间 */
 	@Excel(name="激活时间 ")
-	private java.lang.Integer activationTime;
+	private Long activationTime;
 	/**用户QQ*/
 	@Excel(name="用户QQ")
 	private java.lang.Integer userQq;
@@ -243,7 +243,7 @@ public class CtUserEntity implements java.io.Serializable {
 	private java.lang.Integer qrcodeStatus;
 	/**分红时间*/
 	@Excel(name="分红时间")
-	private java.lang.Integer bonusTime;
+	private Long bonusTime;
 	/**是否空单激活*/
 	@Excel(name="是否空单激活")
 	private java.lang.Integer isEmpty;
@@ -276,7 +276,7 @@ public class CtUserEntity implements java.io.Serializable {
 	private java.lang.Integer dis;
 	/**释放时间*/
 	@Excel(name="释放时间")
-	private java.lang.Integer releaseTime;
+	private Long releaseTime;
 	/**是否商家*/
 	@Excel(name="是否商家")
 	private java.lang.Integer isshop;
@@ -1001,7 +1001,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *@return: java.lang.Integer  激活时间 
 	 */
 	@Column(name ="ACTIVATION_TIME",nullable=false,length=10)
-	public java.lang.Integer getActivationTime(){
+	public Long getActivationTime(){
 		return this.activationTime;
 	}
 
@@ -1009,7 +1009,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 设置java.lang.Integer
 	 *@param: java.lang.Integer  激活时间 
 	 */
-	public void setActivationTime(java.lang.Integer activationTime){
+	public void setActivationTime(Long activationTime){
 		this.activationTime = activationTime;
 	}
 	/**
@@ -1448,8 +1448,8 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  分红时间
 	 */
-	@Column(name ="BONUS_TIME",nullable=false,length=10)
-	public java.lang.Integer getBonusTime(){
+	@Column(name ="BONUS_TIME",nullable=false)
+	public Long getBonusTime(){
 		return this.bonusTime;
 	}
 
@@ -1457,7 +1457,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 设置java.lang.Integer
 	 *@param: java.lang.Integer  分红时间
 	 */
-	public void setBonusTime(java.lang.Integer bonusTime){
+	public void setBonusTime(Long bonusTime){
 		this.bonusTime = bonusTime;
 	}
 	/**
@@ -1624,8 +1624,8 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  释放时间
 	 */
-	@Column(name ="RELEASE_TIME",nullable=false,length=10)
-	public java.lang.Integer getReleaseTime(){
+	@Column(name ="RELEASE_TIME",nullable=false )
+	public Long getReleaseTime(){
 		return this.releaseTime;
 	}
 
@@ -1633,7 +1633,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 设置java.lang.Integer
 	 *@param: java.lang.Integer  释放时间
 	 */
-	public void setReleaseTime(java.lang.Integer releaseTime){
+	public void setReleaseTime(Long releaseTime){
 		this.releaseTime = releaseTime;
 	}
 	/**

@@ -12,9 +12,9 @@
  <body>
   <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="ctUserAccountController.do?doAdd" >
 		<input id="id" name="id" type="hidden" value="${ctUserAccountPage.id }"/>
-		<input id="userid" name="userid" type="hidden" value="${ctUserAccountPage.userid }"/>
+		<input id="userid" name="userid" type="hidden" value="${ctUserAccountPage.ctUser.id }"/>
 		<input id="updatetime" name="updatetime" type="hidden" value="${ctUserAccountPage.updatetime }"/>
-		<input id="action" name="action" type="hidden" value="add"/>
+		<input id="action" name="action" type="hidden" value="sub"/>
 		<table style="width: 600px;" cellpadding="0" cellspacing="1" class="formtable">
 				<tr>
 					<td align="right">
