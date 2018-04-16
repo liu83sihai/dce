@@ -62,13 +62,16 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
 			amount = getAmount(action, oldAmount, amount);
 			
 //			updateSql +=  "originalamount = ifnull(originalamount,0)+" + amount + ",";
-			updateUserSql +=  "balance_integral = ifnull(balance_integral,0)+" + amount + ",";
+			updateUserSql = updateUserSql +  "balance_integral =  case when ifnull(balance_integral,0)+(" + amount + ") >0 "
+						   + "then  ifnull(balance_integral, 0)+(" + amount+ ")  else 0 end,";
 		//现持仓账户
 		}else if(aType.equals(AccountType.current.getAccountType())){
 //			oldAmount = cua.getAmount();
 			amount = getAmount(action, oldAmount, amount);
 			
-			updateUserSql +=  "balance_bonus = ifnull(balance_bonus,0)+" + amount + ",";
+//			updateUserSql +=  "balance_bonus = ifnull(balance_bonus,0)+(" + amount + "),"
+			updateUserSql =  updateUserSql +  "balance_bonus =  case when ifnull(balance_bonus,0)+(" + amount + ") >0 "
+					   + "then  ifnull(balance_bonus, 0)+(" + amount+ ")  else 0 end,";
 			
 //			updateSql +=  "amount = ifnull(amount,0)+" + amount + ",";
 			//积分
@@ -76,24 +79,28 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
 //			oldAmount = cua.getScoreamount();
 			amount = getAmount(action, oldAmount, amount);
 			
-			updateUserSql +=  "balance_cash = ifnull(balance_cash,0)+" + amount + ",";
+//			updateUserSql +=  "balance_cash = ifnull(balance_cash,0)+(" + amount + "),";
+			updateUserSql =  updateUserSql +  "balance_cash =  case when ifnull(balance_cash,0)+(" + amount + ") >0 "
+					   + "then  ifnull(balance_cash, 0)+(" + amount+ ")  else 0 end,";
 //			updateSql +=  "scoreamount = ifnull(scoreamount,0)+" + amount + ",";
 			//美元点
 		}else if(aType.equals(AccountType.point.getAccountType())){
 //			oldAmount = cua.getPointamount();
 			amount = getAmount(action, oldAmount, amount);
 			
-			updateUserSql +=  "balance_shopping = ifnull(balance_shopping,0)+" + amount + ",";
+//			updateUserSql +=  "balance_shopping = ifnull(balance_shopping,0)+(" + amount + "),";
+			updateUserSql =  updateUserSql +  "balance_shopping =  case when ifnull(balance_shopping,0)+(" + amount + ") >0 "
+					   + "then  ifnull(balance_shopping, 0)+(" + amount+ ")  else 0 end,";
 //			updateSql +=  "pointamount = ifnull(pointamount,0)+" + amount + ",";
 		}
 		
 		String type = "+";
 		if("add".equals(action)){
-			updateSql +=  "totalInocmeAmount = ifnull(totalInocmeAmount,0)+" + amount + ",";
-			updateSql +=  "incomeAmount = ifnull(incomeAmount,0)+" + amount + ",";
+			updateSql +=  "totalInocmeAmount = ifnull(totalInocmeAmount,0)+(" + amount + "),";
+			updateSql +=  "incomeAmount = ifnull(incomeAmount,0)+(" + amount + "),";
 		}else{
-			updateSql +=  "totalConsumeAmount = ifnull(totalConsumeAmount,0)+" + amount + ",";
-			updateSql +=  "consumeAmount = ifnull(consumeAmount,0)+" + amount + ",";
+			updateSql +=  "totalConsumeAmount = ifnull(totalConsumeAmount,0)+(" + amount + "),";
+			updateSql +=  "consumeAmount = ifnull(consumeAmount,0)+(" + amount + "),";
 			 type = "-";
 		}
 		

@@ -14,6 +14,7 @@
 					<input id="id" name="id" type="hidden" value="${ctCurrencyPage.id }">
 					<input id="currencyUrl" name="currencyUrl" type="hidden" value="${ctCurrencyPage.currencyUrl }">
 					<input id="rpcPwd" name="rpcPwd" type="hidden" value="${ctCurrencyPage.rpcPwd }">
+					<input id="currencyLogo" name="currencyLogo" type="hidden" value="${ctCurrencyPage.currencyLogo }">
 		<table style="width: 600px;" cellpadding="0" cellspacing="1" class="formtable">
 					<tr>
 						<td align="right">
@@ -30,15 +31,95 @@
 						</td>
 						<td align="right">
 							<label class="Validform_label">
-								货币logo:
+								币总数量:
 							</label>
 						</td>
 						<td class="value">
-						     	 <input id="currencyLogo" name="currencyLogo" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.currencyLogo}'>
+						     	 <input id="currencyAllNum" name="currencyAllNum" type="text" style="width: 150px" class="inputxt"  
+						     	 ignore="ignore" 
+						     	 value='${ctCurrencyPage.currencyAllNum}'>
 							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">货币logo</label>
+							<label class="Validform_label" style="display: none;">币总数量</label>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								开盘价:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="priceOpen" name="priceOpen" type="text" style="width: 150px" class="inputxt"  
+						     	 ignore="ignore" 
+						     	 value='${ctCurrencyPage.priceOpen}'>
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">开盘价</label>
+						</td>
+						<td align="right">
+							<label class="Validform_label">
+								跌停:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="priceDown" name="priceDown" type="text" style="width: 150px" class="inputxt" datatype="*" 
+						     	 ignore="checked" 
+						     	 value='${ctCurrencyPage.priceDown}'>
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">跌停</label>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								提币手续费:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="withFee" name="withFee" type="text" style="width: 150px" class="inputxt"  
+						     	 ignore="ignore" 
+						     	 value='${ctCurrencyPage.withFee}'>
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">提币手续费</label>
+						</td>
+						<td align="right">
+							<label class="Validform_label">
+								涨停:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="priceUp" name="priceUp" type="text" style="width: 150px" class="inputxt" datatype="*" 
+						     	 ignore="checked" 
+						     	 value='${ctCurrencyPage.priceUp}'>
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">涨停</label>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								充币提币状态:
+							</label>
+						</td>
+						<td class="value">
+						     	 
+						     	 	 <t:dictSelect field="isCtstatus" hasLabel="false" 
+						     	   typeGroupCode="ctstatus" defaultVal='${userStaticPage.isCtstatus}'></t:dictSelect>
+						     	 
+						     	 
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">充币提币状态</label>
+						</td>
+						<td align="right">
+							<label class="Validform_label">
+								是否交易:
+							</label>
+						</td>
+						<td class="value">
+						     	 	 <t:dictSelect field="isLock" hasLabel="false" 
+						     	   typeGroupCode="islock" defaultVal='${userStaticPage.isLock}'></t:dictSelect>
+						     	 
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">是否交易</label>
 						</td>
 					</tr>
 					<tr>
@@ -83,18 +164,7 @@
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">总市值</label>
 						</td>
-						<td align="right">
-							<label class="Validform_label">
-								币总数量:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="currencyAllNum" name="currencyAllNum" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.currencyAllNum}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">币总数量</label>
-						</td>
+						
 					</tr>
 					<tr>
 						<td align="right">
@@ -137,16 +207,17 @@
 						</td>
 						<td align="right">
 							<label class="Validform_label">
-								提币手续费:
+								发行价格:
 							</label>
 						</td>
 						<td class="value">
-						     	 <input id="withFee" name="withFee" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.withFee}'>
+						     	 <input id="priceFx" name="priceFx" type="text" style="width: 150px" class="inputxt" datatype="*" 
+						     	 ignore="checked" 
+						     	 value='${ctCurrencyPage.priceFx}'>
 							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">提币手续费</label>
+							<label class="Validform_label" style="display: none;">发行价格</label>
 						</td>
+						
 					</tr>
 					<tr>
 						<td align="right">
@@ -174,32 +245,7 @@
 							<label class="Validform_label" style="display: none;">交易币种</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								isLine:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="isLine" name="isLine" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.isLine}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">isLine</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								是否交易:
-							</label>
-						</td>
-						<td class="value">
-						     	 	 <t:dictSelect field="isLock" hasLabel="false" 
-						     	   typeGroupCode="islock" defaultVal='${userStaticPage.isLock}'></t:dictSelect>
-						     	 
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">是否交易</label>
-						</td>
-					</tr>
+					
 					<tr>
 						<td align="right">
 							<label class="Validform_label">
@@ -307,58 +353,8 @@
 							<label class="Validform_label" style="display: none;">钱包密钥</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								发行价格:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="priceFx" name="priceFx" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.priceFx}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">发行价格</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								涨停:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="priceUp" name="priceUp" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.priceUp}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">涨停</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								开盘价:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="priceOpen" name="priceOpen" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.priceOpen}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">开盘价</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								跌停:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="priceDown" name="priceDown" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.priceDown}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">跌停</label>
-						</td>
-					</tr>
+					
+					
 					<tr>
 						<td align="right">
 							<label class="Validform_label">
@@ -424,19 +420,18 @@
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">utime</label>
 						</td>
+						
 						<td align="right">
 							<label class="Validform_label">
-								充币提币状态:
+								isLine:
 							</label>
 						</td>
 						<td class="value">
-						     	 
-						     	 	 <t:dictSelect field="isCtstatus" hasLabel="false" 
-						     	   typeGroupCode="ctstatus" defaultVal='${userStaticPage.isCtstatus}'></t:dictSelect>
-						     	 
-						     	 
+						     	 <input id="isLine" name="isLine" type="text" style="width: 150px" class="inputxt" datatype="*" 
+						     	 ignore="checked" 
+						     	 value='${ctCurrencyPage.isLine}'>
 							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">充币提币状态</label>
+							<label class="Validform_label" style="display: none;">isLine</label>
 						</td>
 					</tr>
 					<tr>

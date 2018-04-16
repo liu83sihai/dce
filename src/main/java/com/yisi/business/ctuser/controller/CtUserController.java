@@ -273,23 +273,47 @@ public class CtUserController extends BaseController {
 		int userId = ctUser.getId();
 		if (StringUtil.isNotEmpty(userId)) {
 			ctUser = ctUserService.getEntity(CtUserEntity.class, userId);
-			req.setAttribute("ctUserPage", ctUser);
+			//顶级用户信息
+			Map<String,Object> topMap = conMap(ctUser.getUserName(),ctUser.getTrueName(),ctUser.getUserLevel(),
+					0,0,ctUser.getStatus(),userId);
+					
+			req.setAttribute("topMap", topMap);
+			//用户子信息
+			String childSql = "SELECT b.id,b.user_name  userName,b.true_name trueName,"
+							+ "		case when b.status =0 then '正常' else '禁用' end as active ,b.total_performance, "
+							+ " b.referee_number,b.user_level userLevel,b.reg_time,a.distance, "
+							+ "	a.lr_district,a.position "
+							+ " FROM   ct_user_parent  a "
+							+ " LEFT JOIN  ct_user b ON a.userid =b.id  "
+							+ " where a.parentid = ?";
+			List<Map<String,Object>> childList = systemService.findForJdbc(childSql, userId);
+			for (Map<String, Object> map : childList) {
+				String position = (String)map.get("position");
+				int distance = (int)map.get("distance");
+				req.setAttribute("childMap" +distance +position  , map);
+			}
+			
+			
 		}	
-		
-		//ztree同步加载
-		String listSql = "	select cu.id,up.parentid pid,cu.true_name name from ct_user_parent  up "
-				  +"	left join ct_user cu on up.userid=cu.id"
-				  + " where up.userid=?";
-		List<Map<String, Object>> userList = systemService.findForJdbc(
-				listSql,userId);
-		
-		getZtreeData(userId,userList);
-		
-		
-		JSONArray jsonArray=JSONArray.fromObject(userList);
-		req.setAttribute("regions", jsonArray.toString().replaceAll("pid","pId"));
-		
 		return new ModelAndView("com/yisi/business/ctuser/user_tree");
+	}
+	
+	public Map<String,Object> conMap(String userName,String trueName,int userLevel,
+			int leftNumber,int rightNumber,int status,int userId){
+		Map<String,Object> topMap = new HashMap<String,Object>();
+		topMap.put("userName", userName);
+		topMap.put("trueName", trueName);
+		topMap.put("userLevel", userLevel);
+		topMap.put("leftNumber",leftNumber);
+		topMap.put("rightNumber",rightNumber);
+		topMap.put("id",userId);
+		String statues = "正常";
+		if(status == 1){
+			statues = "禁用";
+		}
+		topMap.put("active",statues);
+		
+		return topMap;
 	}
 	/**
 	 * 用户信息表新增页面跳转
@@ -305,13 +329,12 @@ public class CtUserController extends BaseController {
 		}	
 		
 		//ztree同步加载
-		String listSql = "	select cu.id,up.refereeid pid,cu.true_name name from  ct_user_referee  up "
-						+ "	left join ct_user cu on up.userid=cu.id	"
-						+ " where up.userid=?";
-		List<Map<String, Object>> userList = systemService.findForJdbc(
-				listSql,userId);
+//		String listSql = "	select cu.id,up.refereeid pid,cu.true_name name from  ct_user_referee  up "
+//						+ "	left join ct_user cu on up.userid=cu.id	"
+//						+ " where up.userid=?";
+		List<Map<String, Object>> userList = new ArrayList<Map<String, Object>>();
 		
-		getUserRef(userId,userList);
+		getUserRef(userId,userList,1);
 		
 		JSONArray jsonArray=JSONArray.fromObject(userList);
 		req.setAttribute("regions", jsonArray.toString().replaceAll("pid","pId"));
@@ -350,19 +373,28 @@ public class CtUserController extends BaseController {
 	 * 获取所有的用户推荐数据
 	 * @return
 	 */
-	public List<Map<String, Object>> getUserRef(int parentId,List<Map<String, Object>> userList){
+	public List<Map<String, Object>> getUserRef(long parentId,List<Map<String, Object>> userList,int distance){
 		
 		
-		String parentSql = "	select cu.id,up.refereeid pid,cu.user_name name from  ct_user_referee  up "
-						 + "	left join ct_user cu on up.userid=cu.id	"
-						 + " 	where up.userid = ?";
+//		String parentSql = "	select cu.id,up.refereeid pid,cu.user_name name from  ct_user_referee  up "
+//						 + "	left join ct_user cu on up.userid=cu.id	"
+//						 + " 	where up.userid = ?";
 		
-		List<Map<String, Object>> tempList = systemService.findForJdbc(parentSql, parentId);
+		String parentSql =  " SELECT  CONCAT(b.true_name,'[',b.user_name,']') AS name, "
+						 +  " b.id,a.refereeid pid,a.distance "
+						 +  " FROM  ct_user_referee a "
+						 + " LEFT JOIN  ct_user b ON a.userid =b.id  "
+						 +  " where a.refereeid = ? "
+						+ "		and  a.distance <= ? ";
+		
+		
+		List<Map<String, Object>> tempList = systemService.findForJdbc(parentSql, parentId,distance);
 		if(null != tempList && tempList.size()>0){
 			userList.addAll(tempList);
 			for (Map<String, Object> map : tempList) {
 				long tempId = (long) map.get("id");
-				getZtreeData(tempId,userList);
+				int tempDistance = (int) map.get("distance");
+				getUserRef(tempId,userList,tempDistance);
 			}
 			
 			

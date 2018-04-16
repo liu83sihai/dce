@@ -6,14 +6,14 @@
   <t:datagrid name="ctUserAccountList" checkbox="true" pagination="true" fitColumns="false" title="用户账户类型" actionUrl="ctUserAccountController.do?datagrid" idField="id" fit="true" queryMode="group">
     <t:dgCol title="id"  field="id"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="用户名"  field="userName"    queryMode="single" query="true" width="120"></t:dgCol>
-<%--    	<t:dgCol title="用户名称"  field="ctUser.trueName"   query="true"  queryMode="single"  width="120"></t:dgCol> --%>
-    <t:dgCol title="用户电话"  field="mobile"    queryMode="group"  width="120"></t:dgCol>
+   	<t:dgCol title="用户名称"  field="ctUser.trueName"   query="true"  queryMode="single"  width="120"></t:dgCol>
+<%--     <t:dgCol title="用户电话"  field="mobile"    queryMode="group"  width="120"></t:dgCol> --%>
 <%--     <t:dgCol title="账户类型"  field="accounttype"    dictionary="aType"  queryMode="single"  query="true"  width="100"></t:dgCol> --%>
     <t:dgCol title="现持仓"  field="amount"    queryMode="group"  width="100"></t:dgCol>
     <t:dgCol title="原始仓"  field="originalamount"    queryMode="group"  width="100"></t:dgCol>
     <t:dgCol title="美元点"  field="pointamount"    queryMode="group"  width="100"></t:dgCol>
-    <t:dgCol title="积分"  field="scoreamount"    queryMode="group"  width="100"></t:dgCol>
     <t:dgCol title="锁仓"  field="frozendeposit"    queryMode="group"  width="100"></t:dgCol>
+    <t:dgCol title="积分"  field="scoreamount"    queryMode="group"  width="100"></t:dgCol>
 <%--     <t:dgCol title="累计支出金额"  field="totalconsumeamount"    queryMode="group"  width="100"></t:dgCol> --%>
 <%--     <t:dgCol title="累计收入金额"  field="totalinocmeamount"    queryMode="group"  width="100"></t:dgCol> --%>
 <%--     <t:dgCol title="当天收益金额"  field="incomeamount"    queryMode="group"  width="100"></t:dgCol> --%>
@@ -23,7 +23,7 @@
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
 <%--    <t:dgDelOpt title="删除" url="ctUserAccountController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/> --%>
    <t:dgToolBar title="充值" icon="icon-add" url="ctUserAccountController.do?goAdd&action=add" funname="update"></t:dgToolBar>
-   <t:dgToolBar title="减值" icon="icon-edit" url="ctUserAccountController.do?goAdd&action=sub" funname="update"></t:dgToolBar>
+   <t:dgToolBar title="扣除" icon="icon-edit" url="ctUserAccountController.do?goAdd&action=sub" funname="update"></t:dgToolBar>
 <%--    <t:dgToolBar title="批量删除"  icon="icon-remove" url="ctUserAccountController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar> --%>
    <t:dgToolBar title="查看" icon="icon-search" url="ctUserAccountController.do?goUpdate" funname="detail"></t:dgToolBar>
    <%-- <t:dgToolBar title="导入" icon="icon-put" funname="ImportXls"></t:dgToolBar> --%>
