@@ -1,6 +1,8 @@
 package com.yisi.business.ctuser.controller;
+import com.alibaba.fastjson.JSONObject;
 import com.yisi.business.ctuser.entity.CtUserEntity;
 import com.yisi.business.ctuser.service.CtUserServiceI;
+import com.yisi.business.util.HttpUtil;
 import com.yisi.business.util.MD5Encrypt;
 
 import net.sf.json.JSONArray;
@@ -13,6 +15,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -94,6 +97,7 @@ public class CtUserController extends BaseController {
 	@Autowired
 	private Validator validator;
 	
+	private String CREATE_USER_URL = "http://103.43.71.126:8090/dce-app/user/reg.do";
 
 	/**
 	 * 用户信息表列表 页面跳转
@@ -194,9 +198,34 @@ public class CtUserController extends BaseController {
 		String message = null;
 		AjaxJson j = new AjaxJson();
 		message = "用户信息表添加成功";
+		
+		  JSONObject jsonObject = new JSONObject();
+	        jsonObject.put("userName", ctUser.getUserName());
+	        jsonObject.put("trueName", ctUser.getTrueName());
+	        jsonObject.put("mobile", ctUser.getMobile());
+	        
+	        jsonObject.put("idnumber", ctUser.getIdnumber());
+	        
+	        jsonObject.put("refereeUserName", request.getParameter("refferUserName"));
+	        jsonObject.put("parentUserName",  request.getParameter("parentUserName"));
+	        
+	        jsonObject.put("pos", ctUser.getPos());
+	        jsonObject.put("banktype", ctUser.getBanktype());
+	        
+	        jsonObject.put("bankUserName", ctUser.getBankUserName());
+	        jsonObject.put("banknumber", ctUser.getBanknumber());
+	        jsonObject.put("bankContent", ctUser.getBankContent());
+	       
+	        jsonObject.put("userPassword", ctUser.getUserPassword());
+	        jsonObject.put("twoPassword", ctUser.getTwoPassword());
+	        
+	       
+		
 		try{
-			ctUserService.save(ctUser);
-			systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
+//			ctUserService.save(ctUser);
+			 Map<String, Object> resultMap =  HttpUtil.post(CREATE_USER_URL, jsonObject);
+			 message = (String)resultMap.get("msg");
+			 systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
 		}catch(Exception e){
 			e.printStackTrace();
 			message = "用户信息表添加失败";
@@ -271,13 +300,24 @@ public class CtUserController extends BaseController {
 	@RequestMapping(params = "userOrgin")
 	public ModelAndView userOrgin(CtUserEntity ctUser, HttpServletRequest req) {
 		int userId = ctUser.getId();
+		String reqParentid = req.getParameter("topParentid");
+	
 		if (StringUtil.isNotEmpty(userId)) {
 			ctUser = ctUserService.getEntity(CtUserEntity.class, userId);
 			//顶级用户信息
 			Map<String,Object> topMap = conMap(ctUser.getUserName(),ctUser.getTrueName(),ctUser.getUserLevel(),
 					0,0,ctUser.getStatus(),userId);
-					
+			if(StringUtils.isBlank(reqParentid)){
+				reqParentid = "" + userId;
+			}
+			int parentId = ctUser.getParentid();
+			if(("" + userId).equals(reqParentid)){
+				parentId = userId;
+			}
+			
 			req.setAttribute("topMap", topMap);
+			req.setAttribute("parentId", parentId);
+			req.setAttribute("topParentid", reqParentid);
 			//用户子信息
 			String childSql = "SELECT b.id,b.user_name  userName,b.true_name trueName,"
 							+ "		case when b.status =0 then '正常' else '禁用' end as active ,b.total_performance, "

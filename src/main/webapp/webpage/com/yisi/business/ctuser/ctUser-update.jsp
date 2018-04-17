@@ -24,6 +24,66 @@
 					<input id="status" name="status" type="hidden" value="${ctUserPage.status }">
 					<input id="openid" name="openid" type="hidden" value="${ctUserPage.openid }">
 					<input id="register" name="register" type="hidden" value="${ctUserPage.register }">
+					<input id="email" name="email" type="hidden" value="${ctUserPage.email }">
+					<input id="userFace" name="userFace" type="hidden" value="${ctUserPage.userFace }">
+					<input id="sex" name="sex" type="hidden" value="${ctUserPage.sex }">
+					<input id="forzenShopping" name="forzenShopping" type="hidden" value="${ctUserPage.forzenShopping }">
+					<input id="totalBonus" name="totalBonus" type="hidden" value="${ctUserPage.totalBonus }">
+					<input id="totalRepeat" name="totalRepeat" type="hidden" value="${ctUserPage.totalRepeat }">
+					<input id="totalCash" name="totalCash" type="hidden" value="${ctUserPage.totalCash }">
+					<input id="totalIntegral" name="totalIntegral" type="hidden" value="${ctUserPage.totalIntegral }">
+					<input id="totalShopping" name="totalShopping" type="hidden" value="${ctUserPage.totalShopping }">
+					<input id="refereeNumber" name="refereeNumber" type="hidden" value="${ctUserPage.refereeNumber }">
+					<input id="refereeStatus" name="refereeStatus" type="hidden" value="${ctUserPage.refereeStatus }">
+					<input id="sonNumber" name="sonNumber" type="hidden" value="${ctUserPage.sonNumber }">
+					<input id="isServerCenter" name="isServerCenter" type="hidden" value="${ctUserPage.isServerCenter }">
+					<input id="myServerCenter" name="myServerCenter" type="hidden" value="${ctUserPage.myServerCenter }">
+					<input id="userscore" name="userscore" type="hidden" value="${ctUserPage.userscore }">
+					<input id="userType" name="userType" type="hidden" value="${ctUserPage.userType }">
+					<input id="userGroup" name="userGroup" type="hidden" value="${ctUserPage.userGroup }">
+					<input id="userPost" name="userPost" type="hidden" value="${ctUserPage.userPost }">
+					<input id="regMoney" name="regMoney" type="hidden" value="${ctUserPage.regMoney }">
+					<input id="yfMoney" name="yfMoney" type="hidden" value="${ctUserPage.yfMoney }">
+					<input id="fdMoney" name="fdMoney" type="hidden" value="${ctUserPage.fdMoney }">
+					<input id="totalPerformance" name="totalPerformance" type="hidden" value="${ctUserPage.totalPerformance }">
+					<input id="touchedPerformance" name="touchedPerformance" type="hidden" value="${ctUserPage.touchedPerformance }">
+					<input id="activationTime" name="activationTime" type="hidden" value="${ctUserPage.activationTime }">
+					<input id="userQq" name="userQq" type="hidden" value="${ctUserPage.userQq }">
+					<input id="userWechat" name="userWechat" type="hidden" value="${ctUserPage.userWechat }">
+					<input id="expressPassword" name="expressPassword" type="hidden" value="${ctUserPage.expressPassword }">
+					<input id="totalDividends" name="totalDividends" type="hidden" value="${ctUserPage.totalDividends }">
+					<input id="dividendsDays" name="dividendsDays" type="hidden" value="${ctUserPage.dividendsDays }">
+					<input id="country" name="country" type="hidden" value="${ctUserPage.country }">
+					<input id="province" name="province" type="hidden" value="${ctUserPage.province }">
+					<input id="city" name="city" type="hidden" value="${ctUserPage.city }">
+					<input id="darea" name="darea" type="hidden" value="${ctUserPage.darea }">
+					<input id="balanceEt" name="balanceEt" type="hidden" value="${ctUserPage.balanceEt }">
+					<input id="question1" name="question1" type="hidden" value="${ctUserPage.question1 }">
+					<input id="question2" name="question2" type="hidden" value="${ctUserPage.question2 }">
+					<input id="question3" name="question3" type="hidden" value="${ctUserPage.question3 }">
+					<input id="answer1" name="answer1" type="hidden" value="${ctUserPage.answer1 }">
+					<input id="answer2" name="answer2" type="hidden" value="${ctUserPage.answer2 }">
+					<input id="answer3" name="answer3" type="hidden" value="${ctUserPage.answer3 }">
+					<input id="groupid" name="groupid" type="hidden" value="${ctUserPage.groupid }">
+					<input id="isout" name="isout" type="hidden" value="${ctUserPage.isout }">
+					<input id="isimport" name="isimport" type="hidden" value="${ctUserPage.isimport }">
+					<input id="isshop" name="isshop" type="hidden" value="${ctUserPage.isshop }">
+					<input id="releaseTime" name="releaseTime" type="hidden" value="${ctUserPage.releaseTime }">
+					<input id="dis" name="dis" type="hidden" value="${ctUserPage.dis }">
+					<input id="allstatic" name="allstatic" type="hidden" value="${ctUserPage.allstatic }">
+					<input id="guadanNum" name="guadanNum" type="hidden" value="${ctUserPage.guadanNum }">
+					<input id="backfillSheng" name="backfillSheng" type="hidden" value="${ctUserPage.backfillSheng }">
+					<input id="backfillMoney" name="backfillMoney" type="hidden" value="${ctUserPage.backfillMoney }">
+					<input id="backfillStatus" name="backfillStatus" type="hidden" value="${ctUserPage.backfillStatus }">
+					<input id="touchDistance" name="touchDistance" type="hidden" value="${ctUserPage.touchDistance }">
+					<input id="balanceHeart" name="balanceHeart" type="hidden" value="${ctUserPage.balanceHeart }">
+					<input id="isEmpty" name="isEmpty" type="hidden" value="${ctUserPage.isEmpty }">
+					<input id="bonusTime" name="bonusTime" type="hidden" value="${ctUserPage.bonusTime }">
+					<input id="qrcodeStatus" name="qrcodeStatus" type="hidden" value="${ctUserPage.qrcodeStatus }">
+					<input id="balanceGouwu" name="balanceGouwu" type="hidden" value="${ctUserPage.balanceGouwu }">
+					<input id="ticket" name="ticket" type="hidden" value="${ctUserPage.ticket }">
+					<input id="banktype" name="banktype" type="hidden" value="${ctUserPage.banktype }">
+		
 		<table style="width: 600px;" cellpadding="0" cellspacing="1" class="formtable">
 					<tr>
 						<td align="right">
@@ -52,18 +112,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								用户邮箱:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="email" name="email" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.email}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户邮箱</label>
-						</td>
+						
 						<td align="right">
 							<label class="Validform_label">
 								手机号:
@@ -76,20 +125,20 @@
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">手机号</label>
 						</td>
-					</tr>
-					<tr>
 						<td align="right">
 							<label class="Validform_label">
-								用户头像:
+								会员级别:
 							</label>
 						</td>
 						<td class="value">
-						     	 <input id="userFace" name="userFace" type="text" style="width: 150px" class="inputxt" datatype="*" 
+						     	 <input id="userLevel" name="userLevel" type="text" style="width: 150px" class="inputxt" datatype="*" 
 						     	 ignore="checked" 
-						     	 value='${ctUserPage.userFace}'>
+						     	 value='${ctUserPage.userLevel}'>
 							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户头像</label>
+							<label class="Validform_label" style="display: none;">会员级别</label>
 						</td>
+					</tr>
+					<tr>
 						<td align="right">
 							<label class="Validform_label">
 								原始仓:
@@ -97,26 +146,11 @@
 						</td>
 						<td class="value">
 						     	 <input id="balanceIntegral" name="balanceIntegral" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
+						     	  readonly="true"
 						     	 value='${ctUserPage.balanceIntegral}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">原始仓</label>
 						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								用户性别:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="sex" name="sex" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.sex}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户性别</label>
-						</td>
-					
 						<td align="right">
 							<label class="Validform_label">
 								现持仓:
@@ -124,7 +158,7 @@
 						</td>
 						<td class="value">
 						     	 <input id="balanceBonus" name="balanceBonus" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
+						     	   readonly="true"
 						     	 value='${ctUserPage.balanceBonus}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">现持仓</label>
@@ -138,7 +172,7 @@
 						</td>
 						<td class="value">
 						     	 <input id="balanceRepeat" name="balanceRepeat" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
+						     	 ignore="ignore"   readonly="true"
 						     	 value='${ctUserPage.balanceRepeat}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">复消</label>
@@ -150,7 +184,7 @@
 						</td>
 						<td class="value">
 						     	 <input id="balanceCash" name="balanceCash" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
+						     	 ignore="ignore"   readonly="true"
 						     	 value='${ctUserPage.balanceCash}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">积分</label>
@@ -190,440 +224,26 @@
 						</td>
 						<td class="value">
 						     	 <input id="balanceDongjie" name="balanceDongjie" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
+						     	 ignore="ignore"   readonly="true"
 						     	 value='${ctUserPage.balanceDongjie}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">锁仓</label>
 						</td>
 						<td align="right">
 							<label class="Validform_label">
-								余额账户:
+								美元账户:
 							</label>
 						</td>
 						<td class="value">
 						     	 <input id="balanceShopping" name="balanceShopping" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
+						     	 ignore="ignore"  readonly="true"
 						     	 value='${ctUserPage.balanceShopping}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">余额账户</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								冻结余额:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="forzenShopping" name="forzenShopping" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.forzenShopping}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">冻结余额</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								奖金累计:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="totalBonus" name="totalBonus" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.totalBonus}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">奖金累计</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								复消累计:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="totalRepeat" name="totalRepeat" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.totalRepeat}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">复消累计</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								现金累计:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="totalCash" name="totalCash" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.totalCash}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">现金累计</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								积分累计:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="totalIntegral" name="totalIntegral" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.totalIntegral}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">积分累计</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								购物累计:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="totalShopping" name="totalShopping" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.totalShopping}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">购物累计</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								推荐人数:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="refereeNumber" name="refereeNumber" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.refereeNumber}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">推荐人数</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								是否推荐够:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="refereeStatus" name="refereeStatus" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.refereeStatus}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">是否推荐够</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								下级人数:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="sonNumber" name="sonNumber" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.sonNumber}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">下级人数</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								是否服务中心:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="isServerCenter" name="isServerCenter" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.isServerCenter}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">是否服务中心</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								我的服务人:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="myServerCenter" name="myServerCenter" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.myServerCenter}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">我的服务人</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								用户积分:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="userscore" name="userscore" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.userscore}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户积分</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								用户类型 :
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="userType" name="userType" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.userType}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户类型 </label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								会员组:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="userGroup" name="userGroup" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.userGroup}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">会员组</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								会员级别:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="userLevel" name="userLevel" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.userLevel}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">会员级别</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								会员职务:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="userPost" name="userPost" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.userPost}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">会员职务</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								注册金额:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="regMoney" name="regMoney" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.regMoney}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">注册金额</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								已发分红:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="yfMoney" name="yfMoney" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.yfMoney}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">已发分红</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								封顶:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="fdMoney" name="fdMoney" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.fdMoney}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">封顶</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								总业绩:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="totalPerformance" name="totalPerformance" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.totalPerformance}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">总业绩</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								已量碰业绩:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="touchedPerformance" name="touchedPerformance" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.touchedPerformance}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">已量碰业绩</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								激活时间 :
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="activationTime" name="activationTime" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.activationTime}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">激活时间 </label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								用户QQ:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="userQq" name="userQq" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.userQq}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户QQ</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								用户微信号:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="userWechat" name="userWechat" type="text" style="width: 150px" class="inputxt" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.userWechat}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户微信号</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								明文密码:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="expressPassword" name="expressPassword" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.expressPassword}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">明文密码</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								累计分红:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="totalDividends" name="totalDividends" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.totalDividends}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">累计分红</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								分红累计天数:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="dividendsDays" name="dividendsDays" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.dividendsDays}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">分红累计天数</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								会员国家:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="country" name="country" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.country}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">会员国家</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								会员省份:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="province" name="province" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.province}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">会员省份</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								会员城市:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="city" name="city" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.city}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">会员城市</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								会员区县:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="darea" name="darea" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.darea}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">会员区县</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								ET币:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="balanceEt" name="balanceEt" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.balanceEt}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">ET币</label>
-						</td>
-					</tr>
+					
+					
 					<tr>
 						<td align="right">
 							<label class="Validform_label">
@@ -637,18 +257,7 @@
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">身份证号</label>
 						</td>
-						<td align="right">
-							<label class="Validform_label">
-								银行类型:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="banktype" name="banktype" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.banktype}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">银行类型</label>
-						</td>
+						
 					</tr>
 					<tr>
 						<td align="right">
@@ -691,349 +300,18 @@
 						</td>
 						<td align="right">
 							<label class="Validform_label">
-								密保问题a:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="question1" name="question1" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.question1}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">密保问题a</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								密保问题b:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="question2" name="question2" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.question2}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">密保问题b</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								密保问题c:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="question3" name="question3" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.question3}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">密保问题c</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								密保答案a:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="answer1" name="answer1" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.answer1}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">密保答案a</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								密保答案b:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="answer2" name="answer2" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.answer2}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">密保答案b</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								密保答案c:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="answer3" name="answer3" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.answer3}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">密保答案c</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								组id:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="groupid" name="groupid" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.groupid}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">组id</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								ticket:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="ticket" name="ticket" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.ticket}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">ticket</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								购物币:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="balanceGouwu" name="balanceGouwu" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.balanceGouwu}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">购物币</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								qrcodeStatus:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="qrcodeStatus" name="qrcodeStatus" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.qrcodeStatus}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">qrcodeStatus</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								分红时间:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="bonusTime" name="bonusTime" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.bonusTime}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">分红时间</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								是否空单激活:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="isEmpty" name="isEmpty" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.isEmpty}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">是否空单激活</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								爱心基金:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="balanceHeart" name="balanceHeart" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.balanceHeart}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">爱心基金</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								已层碰的层数:
-							</label>
-						</td>
-						<td class="value" colspan="3">
-						  	 	<textarea id="touchDistance" style="width:450px;" class="inputxt" rows="6" name="touchDistance" 
-						  	 	ignore="ignore"
-						  	 	>${ctUserPage.touchDistance}</textarea>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">已层碰的层数</label>
-						</td>
-<!-- 						<td align="right"> -->
-<!-- 							<label class="Validform_label"> -->
-<!-- 								星级别: -->
-<!-- 							</label> -->
-<!-- 						</td> -->
-<!-- 						<td class="value"> -->
-<!-- 						     	 <input id="kuoLevel" name="kuoLevel" type="text" style="width: 150px" class="inputxt"   -->
-<!-- 						     	 ignore="ignore"  -->
-<%-- 						     	 value='${ctUserPage.kuoLevel}'> --%>
-<!-- 							<span class="Validform_checktip"></span> -->
-<!-- 							<label class="Validform_label" style="display: none;">星级别</label> -->
-<!-- 						</td> -->
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								是否是回填单:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="backfillStatus" name="backfillStatus" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.backfillStatus}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">是否是回填单</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								剩余回填金额:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="backfillMoney" name="backfillMoney" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.backfillMoney}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">剩余回填金额</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								回填剩余:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="backfillSheng" name="backfillSheng" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.backfillSheng}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">回填剩余</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								一周可挂单次数:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="guadanNum" name="guadanNum" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctUserPage.guadanNum}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">一周可挂单次数</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								每日静态:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="allstatic" name="allstatic" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.allstatic}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">每日静态</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								dis:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="dis" name="dis" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.dis}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">dis</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								释放时间:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="releaseTime" name="releaseTime" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.releaseTime}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">释放时间</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								是否商家:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="isshop" name="isshop" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.isshop}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">是否商家</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								isimport:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="isimport" name="isimport" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.isimport}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">isimport</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
 								点位:
 							</label>
 						</td>
 						<td class="value">
 						     	 <input id="pos" name="pos" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
+						     	 ignore="checked"  readonly="readonly"
 						     	 value='${ctUserPage.pos}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">点位</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								isout:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="isout" name="isout" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctUserPage.isout}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">isout</label>
-						</td>
-				<td align="right">
-					<label class="Validform_label">
-					</label>
-				</td>
-				<td class="value">
-				</td>
-					</tr>
+					
 			</table>
 		</t:formvalid>
  </body>

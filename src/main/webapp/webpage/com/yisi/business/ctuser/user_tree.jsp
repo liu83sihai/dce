@@ -98,7 +98,16 @@ div.orgChart div.node {
 
 			<div class="builder builder-list-box">
 				<!-- 顶部工具栏按钮 -->
-
+<!-- 顶部工具栏按钮 -->
+	<div class="builder-tabs builder-list-tabs">
+		<div class="row">
+			<!-- 工具栏按钮 -->
+			<div class="col-xs-12 col-sm-9 button-list">
+			<a class="btn btn-success" href="ctUserController.do?userOrgin&id=${parentId}&topParentid=${topParentid}" title="返回上一层">返回上一层</a>
+			</div>
+		
+		</div>
+    </div>
 				<div class="builder-container builder-list-container">
 					<div id="zpmain">
 						<div class="orgChart">
@@ -109,7 +118,7 @@ div.orgChart div.node {
 												class="node level0 node0 level0-node0 hasChildren shownChildren">
 												<div class="box box-f1 box-bg" title="客户编号">
 													<a
-														href="ctUserController.do?userOrgin&id=${topMap.id}">${topMap.userName }</a>
+														href="ctUserController.do?userOrgin&id=${topMap.id}&topParentid=${topParentid}">${topMap.userName }</a>
 												</div>
 												<div class="box box-f1 box-bg" title="客户昵称">${topMap.trueName }</div>
 												<div class="box box-f1 box-bg" title="客户等级">${topMap.userLevel }级</div>
@@ -148,7 +157,7 @@ div.orgChart div.node {
 																class="node level1 node0 level1-node0 hasChildren shownChildren">
 																	<div class="box box-f1 box-bg" title="客户编号">
 													<a
-														href="ctUserController.do?userOrgin&id=${childMap11.id }">${childMap11.userName }</a>
+														href="ctUserController.do?userOrgin&id=${childMap11.id }&topParentid=${topParentid}">${childMap11.userName }</a>
 														</div>
 														<div class="box box-f1 box-bg" title="客户昵称">${childMap11.trueName }</div>
 														<div class="box box-f1 box-bg" title="客户等级">${childMap11.userLevel }级</div>
@@ -187,7 +196,7 @@ div.orgChart div.node {
 																				class="node level2 node0 level2-node0">
 																				<div class="box box-f1 box-bg" title="客户编号">
 													<a
-														href="ctUserController.do?userOrgin&id=${childMap21.id }">${childMap21.userName }</a>
+														href="ctUserController.do?userOrgin&id=${childMap21.id }&topParentid=${topParentid}">${childMap21.userName }</a>
 														</div>
 														<div class="box box-f1 box-bg" title="客户昵称">${childMap21.trueName }</div>
 														<div class="box box-f1 box-bg" title="客户等级">${childMap21.userLevel }级</div>
@@ -210,7 +219,7 @@ div.orgChart div.node {
 																				class="node level2 node1 level2-node1">
 																				<div class="box box-f1 box-bg" title="客户编号">
 													<a
-														href="ctUserController.do?userOrgin&id=${childMap22.id }">${childMap22.userName }</a>
+														href="ctUserController.do?userOrgin&id=${childMap22.id }&topParentid=${topParentid}">${childMap22.userName }</a>
 														</div>
 														<div class="box box-f1 box-bg" title="客户昵称">${childMap22.trueName }</div>
 														<div class="box box-f1 box-bg" title="客户等级">${childMap22.userLevel }级</div>
@@ -236,7 +245,7 @@ div.orgChart div.node {
 																class="node level1 node1 level1-node1 hasChildren shownChildren">
 																<div class="box box-f1 box-bg" title="客户编号">
 													<a
-														href="ctUserController.do?userOrgin&id=${childMap12.id }">${childMap12.userName }</a>
+														href="ctUserController.do?userOrgin&id=${childMap12.id }&topParentid=${topParentid}">${childMap12.userName }</a>
 														</div>
 														<div class="box box-f1 box-bg" title="客户昵称">${childMap12.trueName }</div>
 														<div class="box box-f1 box-bg" title="客户等级">${childMap12.userLevel }级</div>
@@ -276,7 +285,7 @@ div.orgChart div.node {
 																				class="node level2 node0 level2-node0">
 																				<div class="box box-f1 box-bg" title="客户编号">
 													<a
-														href="ctUserController.do?userOrgin&id=${childMap23.id }">${childMap23.userName }</a>
+														href="ctUserController.do?userOrgin&id=${childMap23.id }&topParentid=${topParentid}">${childMap23.userName }</a>
 														</div>
 														<div class="box box-f1 box-bg" title="客户昵称">${childMap23.trueName }</div>
 														<div class="box box-f1 box-bg" title="客户等级">${childMap23.userLevel }级</div>
@@ -299,7 +308,7 @@ div.orgChart div.node {
 																				class="node level2 node1 level2-node1">
 																				<div class="box box-f1 box-bg" title="客户编号">
 													<a
-														href="ctUserController.do?userOrgin&id=${childMap24.id }">${childMap24.userName }</a>
+														href="ctUserController.do?userOrgin&id=${childMap24.id }&topParentid=${topParentid}">${childMap24.userName }</a>
 														</div>
 														<div class="box box-f1 box-bg" title="客户昵称">${childMap24.trueName }</div>
 														<div class="box box-f1 box-bg" title="客户等级">${childMap24.userLevel }级</div>
