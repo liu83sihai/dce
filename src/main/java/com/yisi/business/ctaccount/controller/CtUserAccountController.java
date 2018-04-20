@@ -115,37 +115,66 @@ public class CtUserAccountController extends BaseController {
 	 */
 
 	@RequestMapping(params = "datagrid")
-	public void datagrid(CtUserAccountEntity ctUserAccount,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
-		CriteriaQuery cq = new CriteriaQuery(CtUserAccountEntity.class, dataGrid);
+	public void datagrid(CtUserEntity ctUser,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
+//		CriteriaQuery cq = new CriteriaQuery(CtUserAccountEntity.class, dataGrid);
 		
-		int page = dataGrid.getPage();
-		int rows = dataGrid.getRows();
-		
-		
-		String viewSql = "  select  cu.id,user_name userName,mobile,    "
-				+ "  cua.amount originalamount,"
-				+ "  cub.amount amount,"
-				+ "  cuc.amount pointamount,"
-				+ "  cud.amount scoreamount "
-				+ "  from ct_user cu"
-				+ "  left join ct_user_account cua on  cu.id = cua.userid and cua.accounttype='original'"
-				+ "  left join ct_user_account cub on  cu.id = cub.userid and cub.accounttype='current'"
-				+ "  left join ct_user_account cuc on  cu.id = cuc.userid and cuc.accounttype='point'"
-				+ "  left join ct_user_account cud on  cu.id = cud.userid and cud.accounttype='score'"
-				+ "  where 1=1 ";
-		
-		long count = systemService.getCountForJdbc("select count(1) from ct_user");
-		List<Map<String,Object>> accountList = systemService.findForJdbcParam(viewSql, page, rows);
+		CriteriaQuery cq = new CriteriaQuery(CtUserEntity.class, dataGrid);
 		//查询条件组装器
-//		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccount, request.getParameterMap());
+		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUser, request.getParameterMap());
 		try{
 		//自定义追加查询条件
 		}catch (Exception e) {
 			throw new BusinessException(e.getMessage());
 		}
 		cq.add();
-		dataGrid.setResults(accountList);
-		dataGrid.setTotal((int)count);
+		this.ctUserAccountService.getDataGridReturn(cq, true);
+		List<CtUserEntity> userList = dataGrid.getResults();
+		
+		String accountSql = " select  amount originalamount,"
+				+ "     (select  amount  from ct_user_account cub where cua.userid = cub.userid and cub.accounttype='current') current,"
+				+ "     (select amount  from ct_user_account cuc where cua.userid = cuc.userid and cuc.accounttype='point') pointamount,"
+				+ "     (select amount  from ct_user_account cud where cua.userid = cud.userid and cud.accounttype='score') scoreamount"
+				+ "  from "
+				+ " ct_user_account cua "
+				+ " where cua.userid = ?  and cua.accounttype='original'";
+		for (CtUserEntity ctUserEntity : userList) {
+			int userId = ctUserEntity.getId();
+			List<Map<String,Object>> accountList = systemService.findForJdbc(accountSql,userId);
+			if(null != accountList && accountList.size() > 0){
+				Map<String,Object> accountMap = accountList.get(0);
+				ctUserEntity.setBalanceIntegral((BigDecimal)accountMap.get("originalamount"));
+				ctUserEntity.setBalanceBonus((BigDecimal)accountMap.get("current"));
+				ctUserEntity.setBalanceCash((BigDecimal)accountMap.get("scoreamount"));
+				ctUserEntity.setBalanceShopping((BigDecimal)accountMap.get("pointamount"));
+				
+			}
+//			
+		}
+		
+//		String viewSql = "  select  cu.id,user_name userName,mobile,    "
+//				+ "  cua.amount originalamount,"
+//				+ "  cub.amount amount,"
+//				+ "  cuc.amount pointamount,"
+//				+ "  cud.amount scoreamount "
+//				+ "  from ct_user cu"
+//				+ "  left join ct_user_account cua on  cu.id = cua.userid and cua.accounttype='original'"
+//				+ "  left join ct_user_account cub on  cu.id = cub.userid and cub.accounttype='current'"
+//				+ "  left join ct_user_account cuc on  cu.id = cuc.userid and cuc.accounttype='point'"
+//				+ "  left join ct_user_account cud on  cu.id = cud.userid and cud.accounttype='score'"
+//				+ "  where 1=1 ";
+//		
+//		long count = systemService.getCountForJdbc("select count(1) from ct_user");
+//		List<Map<String,Object>> accountList = systemService.findForJdbcParam(viewSql, page, rows);
+//		//查询条件组装器
+////		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccount, request.getParameterMap());
+//		try{
+//		//自定义追加查询条件
+//		}catch (Exception e) {
+//			throw new BusinessException(e.getMessage());
+//		}
+//		cq.add();
+//		dataGrid.setResults(accountList);
+//		dataGrid.setTotal((int)count);
 //		this.ctUserAccountService.getDataGridReturn(cq, true);
 		TagUtil.datagrid(response, dataGrid);
 	}

@@ -88,4 +88,12 @@ public enum IncomeType {
         }
         return IncomeType.TYPE_STATIC;
     }
+    public static String getTypeStByType(int type) {
+    	for (IncomeType t : IncomeType.values()) {
+    		if (t.getIncomeType() == type) {
+    			return t.getRemark();
+    		}
+    	}
+    	return "";
+    }
 }

@@ -1,6 +1,9 @@
 package com.yisi.business.ctaccount.controller;
 import com.yisi.business.ctaccount.entity.CtUserAccountDetailEntity;
 import com.yisi.business.ctaccount.service.CtUserAccountDetailServiceI;
+import com.yisi.business.util.AccountType;
+import com.yisi.business.util.IncomeType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.text.SimpleDateFormat;
@@ -278,6 +281,17 @@ public class CtUserAccountDetailController extends BaseController {
 		CriteriaQuery cq = new CriteriaQuery(CtUserAccountDetailEntity.class, dataGrid);
 		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccountDetail, request.getParameterMap());
 		List<CtUserAccountDetailEntity> ctUserAccountDetails = this.ctUserAccountDetailService.getListByCriteriaQuery(cq,false);
+		
+//		IncomeType it = new IncomeType();
+		for (CtUserAccountDetailEntity cad : ctUserAccountDetails) {
+			if(null != cad.getCtUser()){
+				cad.setUserName(cad.getCtUser().getUserName() + "[" + cad.getCtUser().getTrueName()+ "]");
+			}
+			String incomeType = IncomeType.getTypeStByType(cad.getIncometype());
+			String aType = AccountType.getTypeStByType(cad.getAccounttype());
+			cad.setIncomeStr(incomeType);
+			cad.setAccounttype(aType);
+		}
 		modelMap.put(NormalExcelConstants.FILE_NAME,"用户账户明细");
 		modelMap.put(NormalExcelConstants.CLASS,CtUserAccountDetailEntity.class);
 		modelMap.put(NormalExcelConstants.PARAMS,new ExportParams("用户账户明细列表", "导出人:"+ResourceUtil.getSessionUserName().getRealName(),

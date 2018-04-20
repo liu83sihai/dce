@@ -11,7 +11,7 @@
    
     <t:dgCol title="金额"  field="amount"    queryMode="group"  width="80"></t:dgCol>
     <t:dgCol title="余额"  field="blanceamount"    queryMode="group"  width="80"></t:dgCol>
-    <t:dgCol title="增加减少"  field="moreorless"    queryMode="group"  width="80"></t:dgCol>
+<%--     <t:dgCol title="增加减少"  field="moreorless"    queryMode="group"  width="80"></t:dgCol> --%>
     <t:dgCol title="流水类型"  field="incometype"  dictionary="iType"  query="true" queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="创建时间"  field="createtime" formatter="yyyy-MM-dd"   queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="账户类型"  field="accounttype"  dictionary="aType"  queryMode="single"  query="true" width="120"></t:dgCol>
@@ -23,7 +23,7 @@
 <%--    <t:dgToolBar title="批量删除"  icon="icon-remove" url="ctUserAccountDetailController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar> --%>
    <t:dgToolBar title="查看" icon="icon-search" url="ctUserAccountDetailController.do?goUpdate" funname="detail"></t:dgToolBar>
    <%-- <t:dgToolBar title="导入" icon="icon-put" funname="ImportXls"></t:dgToolBar> --%>
-   <%-- <t:dgToolBar title="导出" icon="icon-putout" funname="ExportXls"></t:dgToolBar> --%>
+   <t:dgToolBar title="导出" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
    <%-- <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar> --%>
   </t:datagrid>
   </div>

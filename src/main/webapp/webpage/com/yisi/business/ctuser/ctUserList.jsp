@@ -15,7 +15,7 @@
       <t:dgCol title="推荐人id"  field="refereeid"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="接点人ID"  field="parentid"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     
-    <t:dgCol title="状态"  field="status"  dictionary="status" query="true"   queryMode="single"  width="80"></t:dgCol>
+    <t:dgCol title="状态"  field="status"  dictionary="status" query="true"     queryMode="single"  width="80"></t:dgCol>
 <%--     <t:dgCol title="用户邮箱"  field="email"    queryMode="group"  width="120"></t:dgCol> --%>
     <t:dgCol title="手机号"  field="mobile"   query="true"   queryMode="single"  width="120"></t:dgCol>
 <%--     <t:dgCol title="用户密码"  field="userPassword"  hidden="true"  queryMode="group"  width="120"></t:dgCol> --%>
@@ -113,6 +113,14 @@
  <script src = "webpage/com/yisi/business/ctuser/ctUserList.js"></script>		
  <script type="text/javascript">
  $(document).ready(function(){
+ });
+ 
+ $('#ctUserList').datagrid({
+     rowStyler:function(index,row){
+         if (row.status == 1){
+             return 'background-color:#FFD2D2;color:blue;font-weight:bold;';
+         }
+     }
  });
  /**
   * 更新事件打开窗口

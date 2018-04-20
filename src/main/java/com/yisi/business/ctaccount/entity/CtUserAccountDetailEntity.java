@@ -40,22 +40,26 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 	/**id*/
 	private java.lang.Integer id;
 	/**用户ID*/
-	@Excel(name="用户ID")
 	private java.lang.Integer userid;
 	
 	private CtUserEntity ctUser;
+	
+	@Excel(name="用户名")
+	private String userName;
 	/**金额*/
 	@Excel(name="金额")
 	private java.math.BigDecimal amount;
 	/**余额*/
 	@Excel(name="余额")
 	private java.math.BigDecimal blanceamount;
-	/**增加减少*/
-	@Excel(name="增加减少")
+	
+	
 	private java.lang.String moreorless;
+
+	private java.lang.Integer incometype;
 	/**流水类型*/
 	@Excel(name="流水类型")
-	private java.lang.Integer incometype;
+	private String incomeStr;
 	/**创建时间*/
 	@Excel(name="创建时间",format = "yyyy-MM-dd")
 	private java.util.Date createtime;
@@ -130,7 +134,7 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 	 *方法: 取得java.math.BigDecimal
 	 *@return: java.math.BigDecimal  余额
 	 */
-	@Column(name ="BLANCEAMOUNT",nullable=true,scale=4,length=11)
+	@Column(name ="BALANCEAMOUNT",nullable=true,scale=4,length=11)
 	public java.math.BigDecimal getBlanceamount(){
 		return this.blanceamount;
 	}
@@ -222,4 +226,26 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 	public void setRemark(java.lang.String remark){
 		this.remark = remark;
 	}
+
+	@Transient
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	@Transient
+	public String getIncomeStr() {
+		return incomeStr;
+	}
+
+	public void setIncomeStr(String incomeStr) {
+		this.incomeStr = incomeStr;
+	}
+	
+	
+	
+	
 }

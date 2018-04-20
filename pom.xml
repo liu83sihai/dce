@@ -579,11 +579,11 @@
 			<version>${commons-validator.version}</version>
 		</dependency>
 		<!-- ehcache -->
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-core</artifactId>
-			<version>${ehcache.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>net.sf.ehcache</groupId> -->
+<!-- 			<artifactId>ehcache-core</artifactId> -->
+<!-- 			<version>${ehcache.version}</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.jeecgframework</groupId>
 			<artifactId>freemarker-null</artifactId>
@@ -763,6 +763,16 @@
 		  <groupId>commons-httpclient</groupId>
 		  <artifactId>commons-httpclient</artifactId>
 		  <version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.3.1</version>
 		</dependency>
 	    <dependency>
 		    <groupId>org.apache.geronimo.specs</groupId>

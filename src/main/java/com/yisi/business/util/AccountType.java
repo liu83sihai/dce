@@ -54,5 +54,14 @@ public enum AccountType {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+    
+    public static String getTypeStByType(String type) {
+    	for (AccountType t : AccountType.values()) {
+    		if (t.getAccountType().equals(type)) {
+    			return t.getRemark();
+    		}
+    	}
+    	return "";
+    }
 
 }

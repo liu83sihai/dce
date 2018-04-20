@@ -114,6 +114,7 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
         // 增加用户消费列表
         CtUserAccountDetailEntity uaDetail = new CtUserAccountDetailEntity();
         uaDetail.setAmount(amount);
+        uaDetail.setBlanceamount(oldAmount.subtract(amount));
         uaDetail.setCreatetime(new Date());
         uaDetail.setIncometype(IncomeType.TYPE_USER_CHANTE.getIncomeType());
         uaDetail.setMoreorless(type);

@@ -6,14 +6,21 @@
   <t:datagrid name="ctUserAccountList" checkbox="true" pagination="true" fitColumns="false" title="用户账户类型" actionUrl="ctUserAccountController.do?datagrid" idField="id" fit="true" queryMode="group">
     <t:dgCol title="id"  field="id"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="用户名"  field="userName"    queryMode="single" query="true" width="120"></t:dgCol>
-   	<t:dgCol title="用户名称"  field="ctUser.trueName"   query="true"  queryMode="single"  width="120"></t:dgCol>
+   	<t:dgCol title="用户名称"  field="trueName"   query="true"  queryMode="single"  width="120"></t:dgCol>
 <%--     <t:dgCol title="用户电话"  field="mobile"    queryMode="group"  width="120"></t:dgCol> --%>
 <%--     <t:dgCol title="账户类型"  field="accounttype"    dictionary="aType"  queryMode="single"  query="true"  width="100"></t:dgCol> --%>
-    <t:dgCol title="现持仓"  field="amount"    queryMode="group"  width="100"></t:dgCol>
-    <t:dgCol title="原始仓"  field="originalamount"    queryMode="group"  width="100"></t:dgCol>
-    <t:dgCol title="美元点"  field="pointamount"    queryMode="group"  width="100"></t:dgCol>
-    <t:dgCol title="锁仓"  field="frozendeposit"    queryMode="group"  width="100"></t:dgCol>
-    <t:dgCol title="积分"  field="scoreamount"    queryMode="group"  width="100"></t:dgCol>
+<%--     <t:dgCol title="现持仓"  field="amount"    queryMode="group"  width="100"></t:dgCol> --%>
+<%--     <t:dgCol title="原始仓"  field="originalamount"    queryMode="group"  width="100"></t:dgCol> --%>
+<%--     <t:dgCol title="美元点"  field="pointamount"    queryMode="group"  width="100"></t:dgCol> --%>
+<%--     <t:dgCol title="锁仓"  field="frozendeposit"    queryMode="group"  width="100"></t:dgCol> --%>
+<%--     <t:dgCol title="积分"  field="scoreamount"    queryMode="group"  width="100"></t:dgCol> --%>
+
+	 <t:dgCol title="现持仓"  field="balanceBonus"    queryMode="group"  width="120"></t:dgCol>
+    <t:dgCol title="原始仓"  field="balanceIntegral"    queryMode="group"  width="120"></t:dgCol>
+    <t:dgCol title="美元点"  field="balanceShopping"    queryMode="group"  width="120"></t:dgCol>
+	<t:dgCol title="锁仓"  field="balanceDongjie"    queryMode="group"  width="120"></t:dgCol>
+ 	 <t:dgCol title="积分"  field="balanceCash"    queryMode="group"  width="100"></t:dgCol>
+ 	 
 <%--     <t:dgCol title="累计支出金额"  field="totalconsumeamount"    queryMode="group"  width="100"></t:dgCol> --%>
 <%--     <t:dgCol title="累计收入金额"  field="totalinocmeamount"    queryMode="group"  width="100"></t:dgCol> --%>
 <%--     <t:dgCol title="当天收益金额"  field="incomeamount"    queryMode="group"  width="100"></t:dgCol> --%>
