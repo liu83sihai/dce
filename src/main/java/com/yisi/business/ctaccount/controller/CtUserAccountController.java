@@ -131,9 +131,9 @@ public class CtUserAccountController extends BaseController {
 		List<CtUserEntity> userList = dataGrid.getResults();
 		
 		String accountSql = " select  amount originalamount,"
-				+ "     (select  amount  from ct_user_account cub where cua.userid = cub.userid and cub.accounttype='current') current,"
-				+ "     (select amount  from ct_user_account cuc where cua.userid = cuc.userid and cuc.accounttype='point') pointamount,"
-				+ "     (select amount  from ct_user_account cud where cua.userid = cud.userid and cud.accounttype='score') scoreamount"
+				+ "     (select  amount  from ct_user_account cub where cua.userid = cub.userid and cub.accounttype='current' limit 1) current,"
+				+ "     (select amount  from ct_user_account cuc where cua.userid = cuc.userid and cuc.accounttype='point' limit 1) pointamount,"
+				+ "     (select amount  from ct_user_account cud where cua.userid = cud.userid and cud.accounttype='score' limit 1) scoreamount"
 				+ "  from "
 				+ " ct_user_account cua "
 				+ " where cua.userid = ?  and cua.accounttype='original'";

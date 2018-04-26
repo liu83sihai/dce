@@ -15,6 +15,24 @@
 					<input id="currencyUrl" name="currencyUrl" type="hidden" value="${ctCurrencyPage.currencyUrl }">
 					<input id="rpcPwd" name="rpcPwd" type="hidden" value="${ctCurrencyPage.rpcPwd }">
 					<input id="currencyLogo" name="currencyLogo" type="hidden" value="${ctCurrencyPage.currencyLogo }">
+					<input id="rpcUser" name="rpcUser" type="hidden" value="${ctCurrencyPage.rpcUser }">
+					<input id="tradeCurrencyId" name="tradeCurrencyId" type="hidden" value="${ctCurrencyPage.tradeCurrencyId }">
+					<input id="portNumber" name="portNumber" type="hidden" value="${ctCurrencyPage.portNumber }">
+					<input id="addTime" name="addTime" type="hidden" value="${ctCurrencyPage.addTime }">
+					<input id="status" name="status" type="hidden" value="${ctCurrencyPage.status }">
+					<input id="rpcUrl" name="rpcUrl" type="hidden" value="${ctCurrencyPage.rpcUrl }">
+					<input id="detailUrl" name="detailUrl" type="hidden" value="${ctCurrencyPage.detailUrl }">
+					<input id="qianbaoUrl" name="qianbaoUrl" type="hidden" value="${ctCurrencyPage.qianbaoUrl }">
+					<input id="qianbaoKey" name="qianbaoKey" type="hidden" value="${ctCurrencyPage.qianbaoKey }">
+					<input id="guabuynum" name="guabuynum" type="hidden" value="${ctCurrencyPage.guabuynum }">
+					<input id="buynum" name="buynum" type="hidden" value="${ctCurrencyPage.buynum }">
+					<input id="guadanum" name="guadanum" type="hidden" value="${ctCurrencyPage.guadanum }">
+					<input id="isLine" name="isLine" type="hidden" value="${ctCurrencyPage.isLine }">
+					<input id="utime" name="utime" type="hidden" value="${ctCurrencyPage.utime }">
+					<input id="guanwangUrl" name="guanwangUrl" type="hidden" value="${ctCurrencyPage.guanwangUrl }">
+					<input id="currencyAllTibi" name="currencyAllTibi" type="hidden" value="${ctCurrencyPage.currencyAllTibi }">
+					<input id="priceFx" name="priceFx" type="hidden" value="${ctCurrencyPage.priceFx }">
+					<input id="sellPre" name="sellPre" type="hidden" value="${ctCurrencyPage.sellPre }">
 		<table style="width: 600px;" cellpadding="0" cellspacing="1" class="formtable">
 					<tr>
 						<td align="right">
@@ -192,294 +210,11 @@
 							<label class="Validform_label" style="display: none;">卖出手续费</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								卖出比例:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="sellPre" name="sellPre" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.sellPre}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">卖出比例</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								发行价格:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="priceFx" name="priceFx" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.priceFx}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">发行价格</label>
-						</td>
-						
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								rpc账号:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="rpcUser" name="rpcUser" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.rpcUser}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">rpc账号</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								交易币种:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="tradeCurrencyId" name="tradeCurrencyId" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.tradeCurrencyId}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">交易币种</label>
-						</td>
-					</tr>
-					
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								portNumber:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="portNumber" name="portNumber" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.portNumber}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">portNumber</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								addTime:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="addTime" name="addTime" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.addTime}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">addTime</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								status:
-							</label>
-						</td>
-						<td class="value">
-						     	  	 <t:dictSelect field="status" hasLabel="false" 
-						     	   typeGroupCode="status" defaultVal='${userStaticPage.status}'></t:dictSelect>
-						     	 
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">status</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								rpc路径:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="rpcUrl" name="rpcUrl" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.rpcUrl}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">rpc路径</label>
-						</td>
-					</tr>
-					<tr>
-						
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								最大提币额:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="currencyAllTibi" name="currencyAllTibi" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.currencyAllTibi}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">最大提币额</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								跳转链接:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="detailUrl" name="detailUrl" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.detailUrl}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">跳转链接</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								储存路径:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="qianbaoUrl" name="qianbaoUrl" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.qianbaoUrl}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">储存路径</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								钱包密钥:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="qianbaoKey" name="qianbaoKey" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.qianbaoKey}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">钱包密钥</label>
-						</td>
-					</tr>
 					
 					
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								priceZnew:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="priceZnew" name="priceZnew" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.priceZnew}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">priceZnew</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								sort:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="sort" name="sort" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.sort}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">sort</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								限制位数:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="currencyDigitNum" name="currencyDigitNum" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.currencyDigitNum}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">限制位数</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								guanwangUrl:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="guanwangUrl" name="guanwangUrl" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.guanwangUrl}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">guanwangUrl</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								utime:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="utime" name="utime" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.utime}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">utime</label>
-						</td>
-						
-						<td align="right">
-							<label class="Validform_label">
-								isLine:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="isLine" name="isLine" type="text" style="width: 150px" class="inputxt" datatype="*" 
-						     	 ignore="checked" 
-						     	 value='${ctCurrencyPage.isLine}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">isLine</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								卖出挂单量:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="guadanum" name="guadanum" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.guadanum}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">卖出挂单量</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								买进量:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="buynum" name="buynum" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.buynum}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">买进量</label>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								买入挂单量:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="guabuynum" name="guabuynum" type="text" style="width: 150px" class="inputxt"  
-						     	 ignore="ignore" 
-						     	 value='${ctCurrencyPage.guabuynum}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">买入挂单量</label>
-						</td>
-				<td align="right">
-					<label class="Validform_label">
-					</label>
-				</td>
-				<td class="value">
-				</td>
-					</tr>
+				
+					
+					
 			</table>
 		</t:formvalid>
  </body>
