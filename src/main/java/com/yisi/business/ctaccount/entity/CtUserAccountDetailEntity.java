@@ -61,7 +61,7 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 	@Excel(name="流水类型")
 	private String incomeStr;
 	/**创建时间*/
-	@Excel(name="创建时间",format = "yyyy-MM-dd")
+	@Excel(name="创建时间",format = "yyyy-MM-dd hh:mm:ss")
 	private java.util.Date createtime;
 	/**atype*/
 	@Excel(name="atype")

@@ -5,15 +5,15 @@
   <div region="center" style="padding:0px;border:0px">
   <t:datagrid name="ctUserAccountDetailList" checkbox="true" sortName="createtime" pagination="true" fitColumns="false" title="用户账户明细" actionUrl="ctUserAccountDetailController.do?datagrid" idField="id" fit="true" queryMode="group">
     <t:dgCol title="id"  field="id"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
-      <t:dgCol title="用户名"  field="ctUser.userName"  query="true"  queryMode="single"  width="120"></t:dgCol>
-      <t:dgCol title="用户名称"  field="ctUser.trueName"   query="true"  queryMode="single"  width="120"></t:dgCol>
-    <t:dgCol title="用户电话"  field="ctUser.mobile"    queryMode="group"  width="120"></t:dgCol>
+      <t:dgCol title="用户名"  field="ctUser.userName"  query="true"  queryMode="single"  width="80"></t:dgCol>
+      <t:dgCol title="用户名称"  field="ctUser.trueName"   query="true"  queryMode="single"  width="80"></t:dgCol>
+<%--     <t:dgCol title="用户电话"  field="ctUser.mobile"    queryMode="group"  width="120"></t:dgCol> --%>
    
     <t:dgCol title="金额"  field="amount"    queryMode="group"  width="80"></t:dgCol>
     <t:dgCol title="余额"  field="blanceamount"    queryMode="group"  width="80"></t:dgCol>
 <%--     <t:dgCol title="增加减少"  field="moreorless"    queryMode="group"  width="80"></t:dgCol> --%>
     <t:dgCol title="流水类型"  field="incometype"  dictionary="iType"  query="true" queryMode="single"  width="120"></t:dgCol>
-    <t:dgCol title="创建时间"  field="createtime" formatter="yyyy-MM-dd" query="true"  queryMode="group"  width="120"></t:dgCol>
+    <t:dgCol title="创建时间"  field="createtime" formatter="yyyy-MM-dd hh:mm:ss" query="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="账户类型"  field="accounttype"  dictionary="aType"  queryMode="single"  query="true" width="120"></t:dgCol>
     <t:dgCol title="remark"  field="remark"    queryMode="group"  width="120"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>

@@ -2,6 +2,7 @@ package com.yisi.business.ctuser.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.yisi.business.ctuser.entity.CtUserEntity;
 import com.yisi.business.ctuser.service.CtUserServiceI;
+import com.yisi.business.util.DataEncrypt;
 import com.yisi.business.util.HttpUtil;
 import com.yisi.business.util.MD5Encrypt;
 
@@ -257,13 +258,16 @@ public class CtUserController extends BaseController {
 			String oldTwoPassword = t.getTwoPassword();
 			String newTwoPassword = ctUser.getTwoPassword();
 			if(!oldPassword.equals(newPassword)){
-				String md5Password = MD5Encrypt.getMessageDigest(newPassword);
-				ctUser.setUserPassword(md5Password);
+//				String md5Password = MD5Encrypt.getMessageDigest(newPassword);
+				String encryptPassword = DataEncrypt.encrypt(newPassword);
+				
+				ctUser.setUserPassword(encryptPassword);
 			}
 			
 			if(!oldTwoPassword.equals(newTwoPassword)){
-				String md5Password = MD5Encrypt.getMessageDigest(newTwoPassword);
-				ctUser.setTwoPassword(md5Password);
+//				String md5Password = MD5Encrypt.getMessageDigest(newTwoPassword);
+				String encryptPassword = DataEncrypt.encrypt(newTwoPassword);
+				ctUser.setTwoPassword(encryptPassword);
 			}
 			
 			MyBeanUtils.copyBeanNotNull2Bean(ctUser, t);

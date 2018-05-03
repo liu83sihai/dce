@@ -115,13 +115,7 @@
  $(document).ready(function(){
  });
  
- $('#ctUserList').datagrid({
-     rowStyler:function(index,row){
-         if (row.status == 1){
-             return 'background-color:#FFD2D2;color:blue;font-weight:bold;';
-         }
-     }
- });
+
  /**
   * 更新事件打开窗口
   * @param title 编辑框标题
