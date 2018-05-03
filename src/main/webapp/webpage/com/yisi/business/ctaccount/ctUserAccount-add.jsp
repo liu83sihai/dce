@@ -58,6 +58,19 @@
 							<label class="Validform_label" style="display: none;">增加金额</label>
 						</td>
 				</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							备注:
+						</label>
+					</td>
+					<td class="value">
+					     	 <input id="remark" name="remark" type="text" style="width: 150px" class="inputxt" 
+					     	  />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">备注:</label>
+						</td>
+				</tr>
 				
 			</table>
 		</t:formvalid>
