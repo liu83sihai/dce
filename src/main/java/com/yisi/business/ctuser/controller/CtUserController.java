@@ -311,9 +311,9 @@ public class CtUserController extends BaseController {
 			//顶级用户信息
 			Map<String,Object> topMap = conMap(ctUser.getUserName(),ctUser.getTrueName(),ctUser.getUserLevel(),
 					0,0,ctUser.getStatus(),userId);
-			if(StringUtils.isBlank(reqParentid)){
-				reqParentid = "" + userId;
-			}
+//			if(StringUtils.isBlank(reqParentid)){
+//				reqParentid = "" + userId;
+//			}
 			int parentId = ctUser.getParentid();
 			if(("" + userId).equals(reqParentid)){
 				parentId = userId;
