@@ -31,7 +31,7 @@ import org.jeecgframework.web.cgform.enhance.CgformEnhanceJavaInter;
 public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUserAccountServiceI {
 
 	//更新用户金额
-	public void updateUserAcount(int userId,String aType,BigDecimal amount,String action) throws Exception{
+	public void updateUserAcount(int userId,String aType,BigDecimal amount,String action,String remark) throws Exception{
 		
 		  //判断用户是否存在此帐户 没有刚增加
         String listSql = " select * from ct_user_account where userId= ?"  
@@ -119,7 +119,7 @@ public class CtUserAccountServiceImpl extends CommonServiceImpl implements CtUse
         uaDetail.setIncometype(IncomeType.TYPE_USER_CHANTE.getIncomeType());
         uaDetail.setMoreorless(type);
         uaDetail.setAccounttype(aType);
-        uaDetail.setRemark(IncomeType.TYPE_USER_CHANTE.getRemark());
+        uaDetail.setRemark(remark);
         CtUserEntity ctUser = new CtUserEntity();
     	ctUser.setId(userId);
         uaDetail.setCtUser(ctUser);

@@ -246,6 +246,7 @@ public class CtUserAccountController extends BaseController {
 		message = "用户账户类型添加成功";
 		try{
 			String action = request.getParameter("action");
+			String remark = request.getParameter("remark");
 			BigDecimal amount = ctUserAccount.getAmount();
 			if(action.equals("sub")){
 				amount = amount.negate();
@@ -255,7 +256,7 @@ public class CtUserAccountController extends BaseController {
 			
 			//修改账户金额
 			ctUserAccountService.updateUserAcount(ctUserAccount.getUserid(), 
-					atype, amount, action);
+					atype, amount, action,remark);
 			
 			systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
 		}catch(Exception e){

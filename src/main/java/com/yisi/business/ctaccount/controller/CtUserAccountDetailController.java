@@ -6,6 +6,7 @@ import com.yisi.business.util.IncomeType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +27,7 @@ import org.jeecgframework.core.common.model.json.AjaxJson;
 import org.jeecgframework.core.common.model.json.DataGrid;
 import org.jeecgframework.core.constant.Globals;
 import org.jeecgframework.core.util.StringUtil;
+import org.jeecgframework.p3.core.util.oConvertUtils;
 import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.service.SystemService;
@@ -33,6 +35,7 @@ import org.jeecgframework.core.util.MyBeanUtils;
 
 import java.io.OutputStream;
 import org.jeecgframework.core.util.BrowserUtils;
+import org.jeecgframework.core.util.DateUtils;
 import org.jeecgframework.poi.excel.ExcelExportUtil;
 import org.jeecgframework.poi.excel.ExcelImportUtil;
 import org.jeecgframework.poi.excel.entity.ExportParams;
@@ -115,9 +118,31 @@ public class CtUserAccountDetailController extends BaseController {
 	@RequestMapping(params = "datagrid")
 	public void datagrid(CtUserAccountDetailEntity ctUserAccountDetail,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
 		CriteriaQuery cq = new CriteriaQuery(CtUserAccountDetailEntity.class, dataGrid);
+		
+		String createDateStart = request.getParameter("createDateStart");
+		
 		//查询条件组装器
 		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccountDetail, request.getParameterMap());
 		try{
+			//时间范围查询条件
+	        String operatetime_begin = request.getParameter("createtime_begin1");
+	        String operatetime_end = request.getParameter("createtime_end2");
+	        if(oConvertUtils.isNotEmpty(operatetime_begin)){
+	        	try {
+					cq.ge("createtime", DateUtils.parseDate(operatetime_begin, "yyyy-MM-dd hh:mm:ss"));
+				} catch (ParseException e) {
+					logger.error(e);
+				}
+	        	cq.add();
+	        }
+	        if(oConvertUtils.isNotEmpty(operatetime_end)){
+	        	try {
+					cq.le("createtime", DateUtils.parseDate(operatetime_end, "yyyy-MM-dd hh:mm:ss"));
+				} catch (ParseException e) {
+					logger.error(e);
+				}
+	        	cq.add();
+	        }
 		//自定义追加查询条件
 		}catch (Exception e) {
 			throw new BusinessException(e.getMessage());

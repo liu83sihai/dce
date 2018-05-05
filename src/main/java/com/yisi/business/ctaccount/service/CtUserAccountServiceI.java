@@ -20,6 +20,6 @@ public interface CtUserAccountServiceI extends CommonService{
  	 * @param action  增add  减add
  	 * @throws Exception
  	 */
- 	public void updateUserAcount(int userId,String aType,BigDecimal amount,String action) throws Exception;
+ 	public void updateUserAcount(int userId,String aType,BigDecimal amount,String action,String remark) throws Exception;
  	
 }
