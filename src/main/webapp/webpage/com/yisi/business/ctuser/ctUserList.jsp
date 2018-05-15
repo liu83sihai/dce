@@ -15,7 +15,7 @@
       <t:dgCol title="推荐人"  field="refereeUser.userName"   queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="接点人"  field="parentUser.userName"   queryMode="group"  width="120"></t:dgCol>
     
-    <t:dgCol title="激活时间"  field="activationTime"     queryMode="single"  width="80"></t:dgCol>
+    <t:dgCol title="激活时间"  field="activationTime" formatter="yyyy-MM-dd hh:mm:ss"    queryMode="single"  width="80"></t:dgCol>
     <t:dgCol title="状态"  field="status"  dictionary="status" query="true"     queryMode="single"  width="80"></t:dgCol>
 <%--     <t:dgCol title="用户邮箱"  field="email"    queryMode="group"  width="120"></t:dgCol> --%>
     <t:dgCol title="手机号"  field="mobile"   query="true"   queryMode="single"  width="120"></t:dgCol>
