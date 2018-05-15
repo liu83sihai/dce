@@ -5,6 +5,7 @@ import com.yisi.business.ctuser.entity.CtUserEntity;
 import com.yisi.business.util.AccountType;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
@@ -139,6 +140,7 @@ public class CtUserAccountController extends BaseController {
 				+ " where cua.userid = ?  and cua.accounttype='original'";
 		for (CtUserEntity ctUserEntity : userList) {
 			int userId = ctUserEntity.getId();
+			ctUserEntity.setActivationTime(new Date());
 			List<Map<String,Object>> accountList = systemService.findForJdbc(accountSql,userId);
 			if(null != accountList && accountList.size() > 0){
 				Map<String,Object> accountMap = accountList.get(0);
@@ -176,7 +178,7 @@ public class CtUserAccountController extends BaseController {
 //		dataGrid.setResults(accountList);
 //		dataGrid.setTotal((int)count);
 //		this.ctUserAccountService.getDataGridReturn(cq, true);
-		dataGrid.setFooter("合计:,originalamount,pointamount:合计");
+		dataGrid.setFooter("合计:"+100+",balanceIntegral,合计");
 		TagUtil.datagrid(response, dataGrid);
 	}
 	

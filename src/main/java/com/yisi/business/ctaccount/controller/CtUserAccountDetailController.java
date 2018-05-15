@@ -127,8 +127,8 @@ public class CtUserAccountDetailController extends BaseController {
 		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccountDetail, request.getParameterMap());
 		try{
 			//时间范围查询条件
-	        String operatetime_begin = request.getParameter("searchDate_begin");
-	        String operatetime_end = request.getParameter("searchDate_end");
+	        String operatetime_begin = request.getParameter("tempDate_begin");
+	        String operatetime_end = request.getParameter("tempDate_end");
 	        if(oConvertUtils.isNotEmpty(operatetime_begin)){
 	        	try {
 					cq.ge("createtime", DateUtils.parseDate(operatetime_begin, "yyyy-MM-dd"));
