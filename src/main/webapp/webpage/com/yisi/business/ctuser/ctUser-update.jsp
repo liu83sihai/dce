@@ -14,8 +14,8 @@
 					<input id="id" name="id" type="hidden" value="${ctUserPage.id }">
 <%-- 					<input id="userPassword" name="userPassword" type="hidden" value="${ctUserPage.userPassword }"> --%>
 <%-- 					<input id="twoPassword" name="twoPassword" type="hidden" value="${ctUserPage.twoPassword }"> --%>
-					<input id="refereeid" name="refereeid" type="hidden" value="${ctUserPage.refereeid }">
-					<input id="parentid" name="parentid" type="hidden" value="${ctUserPage.parentid }">
+					<input id="refereeUser.id" name="refereeUser.id" type="hidden" value="${ctUserPage.refereeUser.id }">
+					<input id="parentUser.id" name="parentUser.id" type="hidden" value="${ctUserPage.parentUser.id }">
 					<input id="loginTimes" name="loginTimes" type="hidden" value="${ctUserPage.loginTimes }">
 					<input id="lastLoginTime" name="lastLoginTime" type="hidden" value="${ctUserPage.lastLoginTime }">
 					<input id="lastLoginIp" name="lastLoginIp" type="hidden" value="${ctUserPage.lastLoginIp }">

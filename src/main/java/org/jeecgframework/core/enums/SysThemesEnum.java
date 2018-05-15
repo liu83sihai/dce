@@ -81,11 +81,7 @@ public enum SysThemesEnum {
 			//默认风格
 			return ACE_STYLE;
         }
-		for(SysThemesEnum item : SysThemesEnum.values()) {
-			if(item.getStyle().equals(style)) {
-				return item;
-			}
-		}
+		
 		//默认风格
 		return ACE_STYLE;
 	}

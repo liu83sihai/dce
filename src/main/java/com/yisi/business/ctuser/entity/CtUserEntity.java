@@ -10,10 +10,15 @@ import javax.xml.soap.Text;
 import java.sql.Blob;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.SequenceGenerator;
 import org.jeecgframework.poi.excel.annotation.Excel;
@@ -110,6 +115,9 @@ public class CtUserEntity implements java.io.Serializable {
 	private java.math.BigDecimal totalShopping;
 	/**推荐人id*/
 	private java.lang.Integer refereeid;
+	
+	private CtUserEntity refereeUser;
+	private CtUserEntity parentUser;
 	/**接点人ID*/
 	private java.lang.Integer parentid;
 	/**推荐人数*/
@@ -290,6 +298,7 @@ public class CtUserEntity implements java.io.Serializable {
 	@Excel(name="isout")
 	private java.lang.Integer isout;
 	
+	private String remark;
 	/**
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  用户ID
@@ -728,7 +737,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  推荐人id
 	 */
-	@Column(name ="REFEREEID",nullable=true,length=10)
+	@Transient
 	public java.lang.Integer getRefereeid(){
 		return this.refereeid;
 	}
@@ -744,7 +753,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  接点人ID
 	 */
-	@Column(name ="PARENTID",nullable=true,length=10)
+	@Transient
 	public java.lang.Integer getParentid(){
 		return this.parentid;
 	}
@@ -756,6 +765,27 @@ public class CtUserEntity implements java.io.Serializable {
 	public void setParentid(java.lang.Integer parentid){
 		this.parentid = parentid;
 	}
+	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name ="REFEREEID",nullable=true)
+	public CtUserEntity getRefereeUser() {
+		return refereeUser;
+	}
+
+	public void setRefereeUser(CtUserEntity refereeUser) {
+		this.refereeUser = refereeUser;
+	}
+
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name ="PARENTID",nullable=true)
+	public CtUserEntity getParentUser() {
+		return parentUser;
+	}
+
+	public void setParentUser(CtUserEntity parentUser) {
+		this.parentUser = parentUser;
+	}
+
 	/**
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  推荐人数
@@ -1699,6 +1729,14 @@ public class CtUserEntity implements java.io.Serializable {
 	 */
 	public void setIsout(java.lang.Integer isout){
 		this.isout = isout;
+	}
+	@Column(name ="REMARK",nullable=false)
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 	
 	

@@ -6,14 +6,14 @@
   <t:datagrid name="ctUserList" checkbox="true" pagination="true" fitColumns="false" title="用户信息表" actionUrl="ctUserController.do?datagrid" idField="id" fit="true" queryMode="group">
     <t:dgCol title="用户ID"  field="id"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="用户名"  field="userName"    query="true"   queryMode="single"  width="100"></t:dgCol>
-    <t:dgCol title="姓名"  field="trueName"   query="true"   queryMode="single" width="120"></t:dgCol>
-    <t:dgCol title="现持仓"  field="balanceBonus"    queryMode="group"  width="120"></t:dgCol>
-    <t:dgCol title="美元点"  field="balanceShopping"    queryMode="group"  width="120"></t:dgCol>
-    <t:dgCol title="原始仓"  field="balanceIntegral"    queryMode="group"  width="120"></t:dgCol>
-	<t:dgCol title="锁仓"  field="balanceDongjie"    queryMode="group"  width="120"></t:dgCol>
- 	 <t:dgCol title="会员级别"  field="userLevel"    queryMode="group"  width="120"></t:dgCol>
-      <t:dgCol title="推荐人id"  field="refereeid"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
-    <t:dgCol title="接点人ID"  field="parentid"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
+    <t:dgCol title="姓名"  field="trueName"   query="true"   queryMode="single" width="100"></t:dgCol>
+    <t:dgCol title="现持仓"  field="balanceBonus"    queryMode="group"  width="80"></t:dgCol>
+    <t:dgCol title="美元点"  field="balanceShopping"    queryMode="group"  width="80"></t:dgCol>
+    <t:dgCol title="原始仓"  field="balanceIntegral"    queryMode="group"  width="80"></t:dgCol>
+	<t:dgCol title="锁仓"  field="balanceDongjie"    queryMode="group"  width="80"></t:dgCol>
+ 	 <t:dgCol title="会员级别"  field="userLevel"    queryMode="group"  width="80"></t:dgCol>
+      <t:dgCol title="推荐人"  field="refereeUser.userName"   queryMode="group"  width="120"></t:dgCol>
+    <t:dgCol title="接点人"  field="parentUser.userName"   queryMode="group"  width="120"></t:dgCol>
     
     <t:dgCol title="状态"  field="status"  dictionary="status" query="true"     queryMode="single"  width="80"></t:dgCol>
 <%--     <t:dgCol title="用户邮箱"  field="email"    queryMode="group"  width="120"></t:dgCol> --%>
@@ -68,6 +68,7 @@
     <t:dgCol title="开户人"  field="bankUserName"    queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="卡号"  field="banknumber"    queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="支行"  field="bankContent"    queryMode="group"  width="120"></t:dgCol>
+    <t:dgCol title="操作备注"  field="remark"    queryMode="group"  width="120"></t:dgCol>
 <%--     <t:dgCol title="密保问题a"  field="question1"    queryMode="group"  width="120"></t:dgCol> --%>
 <%--     <t:dgCol title="密保问题b"  field="question2"    queryMode="group"  width="120"></t:dgCol> --%>
 <%--     <t:dgCol title="密保问题c"  field="question3"    queryMode="group"  width="120"></t:dgCol> --%>
@@ -98,8 +99,8 @@
 <%--    <t:dgDelOpt title="删除" url="ctUserController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/> --%>
    <t:dgToolBar title="录入" icon="icon-add" url="ctUserController.do?goAdd" funname="add"></t:dgToolBar>
    <t:dgToolBar title="编辑" icon="icon-edit" url="ctUserController.do?goUpdate" funname="update"></t:dgToolBar>
-   <t:dgToolBar title="禁用" icon="icon-edit" url="ctUserController.do?doUpdate&status=1" funname="updateStatus"></t:dgToolBar>
-   <t:dgToolBar title="恢复正常" icon="icon-edit" url="ctUserController.do?doUpdate&status=0" funname="updateStatus"></t:dgToolBar>
+   <t:dgToolBar title="禁用" icon="icon-edit" url="ctUserController.do?goDisabble" funname="update"></t:dgToolBar>
+   <t:dgToolBar title="恢复正常" icon="icon-edit" url="ctUserController.do?goEnable" funname="update"></t:dgToolBar>
   	<t:dgToolBar title="组织结构" icon="icon-edit" url="ctUserController.do?userOrgin" funname="openUserTree" width="850" height="450"></t:dgToolBar>
    <t:dgToolBar title="推荐结构" icon="icon-edit" url="ctUserController.do?userRef" funname="openUserTree" width="680" height="400"></t:dgToolBar>
 <%--    <t:dgToolBar title="批量删除"  icon="icon-remove" url="ctUserController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar> --%>

@@ -250,6 +250,23 @@ public class CtUserController extends BaseController {
 		message = "用户信息表更新成功";
 		CtUserEntity t = ctUserService.get(CtUserEntity.class, ctUser.getId());
 		
+		String action = request.getParameter("action");
+		if(StringUtils.isNotBlank(action)){
+			if("1".equals(action)){
+				t.setStatus(1);
+			}else{
+				t.setStatus(0);
+			}
+			t.setRemark(ctUser.getRemark());
+			try {
+				ctUserService.saveOrUpdate(t);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			j.setMsg(message);
+			return j;
+		}
 		
 		try {
 			String oldPassword = t.getUserPassword();
@@ -460,6 +477,32 @@ public class CtUserController extends BaseController {
 			req.setAttribute("ctUserPage", ctUser);
 		}
 		return new ModelAndView("com/yisi/business/ctuser/ctUser-update");
+	}
+	/**
+	 * 用户信息表编辑页面跳转
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "goDisabble")
+	public ModelAndView goDisabble(CtUserEntity ctUser, HttpServletRequest req) {
+		if (StringUtil.isNotEmpty(ctUser.getId())) {
+			ctUser = ctUserService.getEntity(CtUserEntity.class, ctUser.getId());
+			req.setAttribute("ctUserPage", ctUser);
+		}
+		return new ModelAndView("com/yisi/business/ctuser/ctUser-Disabble");
+	}
+	/**
+	 * 用户信息表编辑页面跳转
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "goEnable")
+	public ModelAndView goEnable(CtUserEntity ctUser, HttpServletRequest req) {
+		if (StringUtil.isNotEmpty(ctUser.getId())) {
+			ctUser = ctUserService.getEntity(CtUserEntity.class, ctUser.getId());
+			req.setAttribute("ctUserPage", ctUser);
+		}
+		return new ModelAndView("com/yisi/business/ctuser/ctUser-Enable");
 	}
 	/**
 	 * 用户信息表编辑页面跳转
