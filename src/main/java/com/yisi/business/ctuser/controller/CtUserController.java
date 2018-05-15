@@ -320,7 +320,7 @@ public class CtUserController extends BaseController {
 	 */
 	@RequestMapping(params = "userOrgin")
 	public ModelAndView userOrgin(CtUserEntity ctUser, HttpServletRequest req) {
-		int userId = ctUser.getId();
+		Integer userId = ctUser.getId();
 		String reqParentid = req.getParameter("topParentid");
 	
 		if (StringUtil.isNotEmpty(userId)) {
@@ -331,7 +331,7 @@ public class CtUserController extends BaseController {
 //			if(StringUtils.isBlank(reqParentid)){
 //				reqParentid = "" + userId;
 //			}
-			int parentId = ctUser.getParentid();
+			Integer parentId = ctUser.getParentid();
 			if(("" + userId).equals(reqParentid)){
 				parentId = userId;
 			}
@@ -383,7 +383,7 @@ public class CtUserController extends BaseController {
 	 */
 	@RequestMapping(params = "userRef")
 	public ModelAndView userRef(CtUserEntity ctUser, HttpServletRequest req) {
-		int userId = ctUser.getId();
+		Integer userId = ctUser.getId();
 		if (StringUtil.isNotEmpty(userId)) {
 			ctUser = ctUserService.getEntity(CtUserEntity.class, userId);
 			req.setAttribute("ctUserPage", ctUser);
