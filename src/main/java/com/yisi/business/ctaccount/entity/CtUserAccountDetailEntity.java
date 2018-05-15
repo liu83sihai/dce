@@ -63,6 +63,7 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 	/**创建时间*/
 	@Excel(name="创建时间",format = "yyyy-MM-dd hh:mm:ss")
 	private java.util.Date createtime;
+	private Date searchDate;
 	/**atype*/
 	@Excel(name="atype")
 	private java.lang.String accounttype;
@@ -243,6 +244,15 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 
 	public void setIncomeStr(String incomeStr) {
 		this.incomeStr = incomeStr;
+	}
+
+	@Transient
+	public Date getSearchDate() {
+		return searchDate;
+	}
+
+	public void setSearchDate(Date searchDate) {
+		this.searchDate = searchDate;
 	}
 	
 	

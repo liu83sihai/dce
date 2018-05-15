@@ -176,6 +176,7 @@ public class CtUserAccountController extends BaseController {
 //		dataGrid.setResults(accountList);
 //		dataGrid.setTotal((int)count);
 //		this.ctUserAccountService.getDataGridReturn(cq, true);
+		dataGrid.setFooter("合计:,originalamount,pointamount:合计");
 		TagUtil.datagrid(response, dataGrid);
 	}
 	

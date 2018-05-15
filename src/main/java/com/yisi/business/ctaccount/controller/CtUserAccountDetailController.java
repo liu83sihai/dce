@@ -28,6 +28,7 @@ import org.jeecgframework.core.common.model.json.DataGrid;
 import org.jeecgframework.core.constant.Globals;
 import org.jeecgframework.core.util.StringUtil;
 import org.jeecgframework.p3.core.util.oConvertUtils;
+import org.jeecgframework.p3.core.utils.common.StringUtils;
 import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.service.SystemService;
@@ -122,14 +123,15 @@ public class CtUserAccountDetailController extends BaseController {
 		String createDateStart = request.getParameter("createDateStart");
 		
 		//查询条件组装器
+		ctUserAccountDetail.setSearchDate(null);
 		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ctUserAccountDetail, request.getParameterMap());
 		try{
 			//时间范围查询条件
-	        String operatetime_begin = request.getParameter("createtime_begin1");
-	        String operatetime_end = request.getParameter("createtime_end2");
+	        String operatetime_begin = request.getParameter("searchDate_begin");
+	        String operatetime_end = request.getParameter("searchDate_end");
 	        if(oConvertUtils.isNotEmpty(operatetime_begin)){
 	        	try {
-					cq.ge("createtime", DateUtils.parseDate(operatetime_begin, "yyyy-MM-dd hh:mm:ss"));
+					cq.ge("createtime", DateUtils.parseDate(operatetime_begin, "yyyy-MM-dd"));
 				} catch (ParseException e) {
 					logger.error(e);
 				}
@@ -137,7 +139,7 @@ public class CtUserAccountDetailController extends BaseController {
 	        }
 	        if(oConvertUtils.isNotEmpty(operatetime_end)){
 	        	try {
-					cq.le("createtime", DateUtils.parseDate(operatetime_end, "yyyy-MM-dd hh:mm:ss"));
+					cq.le("createtime", DateUtils.parseDate(operatetime_end, "yyyy-MM-dd"));
 				} catch (ParseException e) {
 					logger.error(e);
 				}
@@ -149,6 +151,8 @@ public class CtUserAccountDetailController extends BaseController {
 		}
 		cq.add();
 		this.ctUserAccountDetailService.getDataGridReturn(cq, true);
+//		if(StringUtils.isNotBlank(ctUserAccountDetail.getCtUser().getUserName()) )
+//		dataGrid.setFooter("合计:,age,email:合计");
 		TagUtil.datagrid(response, dataGrid);
 	}
 	
