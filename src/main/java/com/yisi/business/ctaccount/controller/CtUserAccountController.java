@@ -27,6 +27,7 @@ import org.jeecgframework.core.common.model.json.AjaxJson;
 import org.jeecgframework.core.common.model.json.DataGrid;
 import org.jeecgframework.core.constant.Globals;
 import org.jeecgframework.core.util.StringUtil;
+import org.jeecgframework.p3.core.utils.common.StringUtils;
 import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.service.SystemService;
@@ -178,7 +179,23 @@ public class CtUserAccountController extends BaseController {
 //		dataGrid.setResults(accountList);
 //		dataGrid.setTotal((int)count);
 //		this.ctUserAccountService.getDataGridReturn(cq, true);
-		dataGrid.setFooter("合计:"+100+",balanceIntegral,合计");
+		if(StringUtils.isNotBlank(ctUser.getTrueName())){
+			String amountSql = "select  sum(amount) amount from ct_user_account where  accounttype=?"
+					+ "  and userid in( select id from ct_user where true_name  = ? )";
+			
+			Map<String,Object> amountMap = systemService.findOneForJdbc(amountSql, "original",ctUser.getTrueName());
+			Map<String,Object> currentMap = systemService.findOneForJdbc(amountSql, "current",ctUser.getTrueName());
+			Map<String,Object> balanceCashMap = systemService.findOneForJdbc(amountSql, "score",ctUser.getTrueName());
+			Map<String,Object> shoppingMap = systemService.findOneForJdbc(amountSql, "point",ctUser.getTrueName());
+			
+//			+ "    (select  amount  from ct_user_account cub where cua.userid = cub.userid and cub.accounttype='current' limit 1) current,"
+//					+ "     (select amount  from ct_user_account cuc where cua.userid = cuc.userid and cuc.accounttype='point' limit 1) pointamount,"
+//					+ "     (select amount  from ct_user_account cud where cua.userid = cud.userid and cud.accounttype='score' limit 1) scoreamount"
+			
+			dataGrid.setFooter("userName:合计,balanceBonus:" +currentMap.get("amount")+",balanceIntegral:"+ amountMap.get("amount") +","
+					+ "balanceCash:"+balanceCashMap.get("amount")+",balanceShopping:" +shoppingMap.get("amount") );
+		}
+		
 		TagUtil.datagrid(response, dataGrid);
 	}
 	
