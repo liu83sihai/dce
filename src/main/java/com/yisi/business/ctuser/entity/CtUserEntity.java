@@ -166,7 +166,7 @@ public class CtUserEntity implements java.io.Serializable {
 	@Excel(name="已量碰业绩")
 	private java.lang.String touchedPerformance;
 	/**激活时间 */
-	@Excel(name="激活时间 ")
+	@Excel(name="激活时间 "  )
 	private Date activationTime;
 	/**用户QQ*/
 	@Excel(name="用户QQ")
@@ -1030,7 +1030,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  激活时间 
 	 */
-	@Column(name ="ACTIVATION_TIME",nullable=false)
+	@Column(name ="ACTIVATION_TIME",nullable=false,insertable = false, updatable = false)
 	public Date getActivationTime(){
 		return this.activationTime;
 	}

@@ -13,8 +13,8 @@
     <t:dgCol title="余额"  field="blanceamount"    queryMode="group"  width="80"></t:dgCol>
 <%--     <t:dgCol title="增加减少"  field="moreorless"    queryMode="group"  width="80"></t:dgCol> --%>
     <t:dgCol title="流水类型"  field="incometype"  dictionary="iType"  query="true" queryMode="single"  width="120"></t:dgCol>
+    <t:dgCol title="查询时间"  field="tempDate"  hidden="true" formatter="yyyy-MM-dd"   query="true" queryMode="group" ></t:dgCol>
     <t:dgCol title="创建时间"  field="createtime"  formatter="yyyy-MM-dd hh:mm:ss"  queryMode="group"  width="120"></t:dgCol>
-    <t:dgCol title="查询时间"  field="searchDate" hidden="true" formatter="yyyy-MM-dd"   query="true" queryMode="group" ></t:dgCol>
     <t:dgCol title="账户类型"  field="accounttype"  dictionary="aType"  queryMode="single"  query="true" width="120"></t:dgCol>
     <t:dgCol title="转出入"  field="seqId"    queryMode="single"   width="120"></t:dgCol>
     <t:dgCol title="备注"  field="remark"    queryMode="group"  width="120"></t:dgCol>
