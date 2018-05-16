@@ -71,6 +71,8 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 	@Excel(name="remark")
 	private java.lang.String remark;
 	
+	private String seqId;
+	
 	/**
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  id
@@ -253,6 +255,15 @@ public class CtUserAccountDetailEntity implements java.io.Serializable {
 
 	public void setSearchDate(Date searchDate) {
 		this.searchDate = searchDate;
+	}
+
+	@Column(name ="SEQID",nullable=true,length=500)
+	public String getSeqId() {
+		return seqId;
+	}
+
+	public void setSeqId(String seqId) {
+		this.seqId = seqId;
 	}
 	
 	
