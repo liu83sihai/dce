@@ -331,7 +331,7 @@ public class CtUserController extends BaseController {
 //			if(StringUtils.isBlank(reqParentid)){
 //				reqParentid = "" + userId;
 //			}
-			Integer parentId = ctUser.getParentid();
+			Integer parentId = ctUser.getParentUser().getId();
 			if(("" + userId).equals(reqParentid)){
 				parentId = userId;
 			}
