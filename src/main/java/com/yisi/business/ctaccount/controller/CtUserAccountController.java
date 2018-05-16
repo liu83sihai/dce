@@ -141,7 +141,6 @@ public class CtUserAccountController extends BaseController {
 				+ " where cua.userid = ?  and cua.accounttype='original'";
 		for (CtUserEntity ctUserEntity : userList) {
 			int userId = ctUserEntity.getId();
-			ctUserEntity.setActivationTime(new Date());
 			List<Map<String,Object>> accountList = systemService.findForJdbc(accountSql,userId);
 			if(null != accountList && accountList.size() > 0){
 				Map<String,Object> accountMap = accountList.get(0);

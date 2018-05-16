@@ -167,7 +167,7 @@ public class CtUserEntity implements java.io.Serializable {
 	private java.lang.String touchedPerformance;
 	/**激活时间 */
 	@Excel(name="激活时间 "  )
-	private Date activationTime;
+	private Long activationTime;
 	/**用户QQ*/
 	@Excel(name="用户QQ")
 	private java.lang.Integer userQq;
@@ -1031,7 +1031,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *@return: java.lang.Integer  激活时间 
 	 */
 	@Column(name ="ACTIVATION_TIME",nullable=false,insertable = false, updatable = false)
-	public Date getActivationTime(){
+	public Long getActivationTime(){
 		return this.activationTime;
 	}
 
@@ -1039,7 +1039,7 @@ public class CtUserEntity implements java.io.Serializable {
 	 *方法: 设置java.lang.Integer
 	 *@param: java.lang.Integer  激活时间 
 	 */
-	public void setActivationTime(Date activationTime){
+	public void setActivationTime(Long activationTime){
 		this.activationTime = activationTime;
 	}
 	/**
